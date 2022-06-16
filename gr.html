@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>CHEFSTOCK PRO platform</title>
+</head>
+
+<body>
+    <h1>страница находится на стадии разработки</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Platform</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="db.html">база данных</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="answers.html">вопросы и ответы</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">образцы</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="pdf/tk.pdf">тк</a></li>
+                            <li><a class="dropdown-item" href="pdf/ttk.pdf">ттк</a></li>
+                            <li><a class="dropdown-item" href="pdf/akt.pdf">акт проработки</a></li>
+                            <li><a class="dropdown-item" href="pdf/obs.pdf">обоснование</a></li>
+                            <li><a class="dropdown-item" href="pdf/clc.pdf">калькуляционная карта</a></li>
+                            <li><a class="dropdown-item" href="pdf/kall.pdf">лист каллорийности</a></li>
+                            <li><a class="dropdown-item" href="pdf/list.pdf">информационный лист</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <style>
+        .filterDiv {
+            background-color: #f1f1f1;
+            color: black;
+            width: 350px;
+            line-height: 15px;
+            text-align: center;
+            margin: 2px;
+            padding: 5px;
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .container {
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        /* Стиль кнопок */
+        .btn {
+            border-top: 6px solid #464646;
+            outline: none;
+            padding: 12px 16px;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #ddd;
+        }
+
+        .btn.active {
+            background-color: #666;
+            color: white;
+        }
+    </style>
+    <div id="myBtnContainer">
+        <!-- <button class="btn" onclick="filterSelection('vegan')">веганская кухня</button> -->
+        <button class="btn" onclick="filterSelection('japan')">японская кухня</button>
+        <!-- <button class="btn" onclick="filterSelection('sf')">street food</button> -->
+        <button class="btn" onclick="filterSelection('uzbek')">восточная кухня</button>
+        <button class="btn" onclick="filterSelection('blin')">блинная</button>
+    </div>
+
+    <div class="container">
+        <div class="filterDiv japan"> Икура Суши </div>
+        <div class="filterDiv japan"> Сашими Икура </div>
+        <div class="filterDiv japan"> Сашими Тобико </div>
+        <div class="filterDiv japan"> Сашими Эби </div>
+        <div class="filterDiv japan"> Сашими Унаги </div>
+        <div class="filterDiv japan"> Амаи Кису </div>
+        <div class="filterDiv japan"> Сашими Хотатэ </div>
+        <div class="filterDiv japan"> Сашими Изуми Тай </div>
+        <div class="filterDiv japan"> Сашими Хамачи </div>
+        <div class="filterDiv japan"> Сашими Сякэ </div>
+        <div class="filterDiv japan"> Сашими Магуро </div>
+        <div class="filterDiv japan"> Эби темпура </div>
+        <div class="filterDiv japan"> Акаи ролл </div>
+        <div class="filterDiv japan"> Калифорния </div>
+        <div class="filterDiv japan"> Эби сирогома </div>
+        <div class="filterDiv japan"> Чидори ролл </div>
+        <div class="filterDiv japan"> Эби Унаги </div>
+        <div class="filterDiv japan"> Хияши Унаги </div>
+        <div class="filterDiv japan"> Унаги Урамаки </div>
+        <div class="filterDiv japan"> Окинава ролл </div>
+        <div class="filterDiv japan"> Филадельфия </div>
+        <div class="filterDiv japan"> Сяке Ролл </div>
+        <div class="filterDiv japan"> Сяке унаги ролл </div>
+        <div class="filterDiv japan"> Унаги ролл </div>
+        <div class="filterDiv japan"> Манила ролл </div>
+        <div class="filterDiv japan"> Кунсей Батакон Ролл </div>
+        <div class="filterDiv japan"> Гейша Ролл </div>
+        <div class="filterDiv japan"> Каппа Ролл </div>
+        <div class="filterDiv japan"> Абокадо ролл </div>
+        <div class="filterDiv japan"> Текка Ролл </div>
+        <div class="filterDiv japan"> Дракон Бонито ролл </div>
+        <div class="filterDiv japan"> Хигата Ролл </div>
+        <div class="filterDiv japan"> Сяке темпура ролл </div>
+        <div class="filterDiv japan"> Фудзи Ролл </div>
+        <div class="filterDiv japan"> Овара Ролл </div>
+        <div class="filterDiv japan"> Мексиканский ролл </div>
+        <div class="filterDiv japan"> Сяке Кадо Ролл </div>
+        <div class="filterDiv japan"> Тануки синсэи Ролл </div>
+        <div class="filterDiv japan"> Итальянский ролл </div>
+        <div class="filterDiv japan"> Ойси Хотто </div>
+        <div class="filterDiv japan"> Кани Хотто </div>
+        <div class="filterDiv japan"> Тануки Фурай </div>
+        <div class="filterDiv japan"> Изуми Спринг Ролл </div>
+        <div class="filterDiv japan"> Абокадо Спринг Ролл </div>
+        <div class="filterDiv japan"> Сяке Суши </div>
+        <div class="filterDiv japan"> Ясай Спринг Ролл </div>
+        <div class="filterDiv japan"> Сяке Кунсей Суши </div>
+        <div class="filterDiv japan"> Эби Гёдза </div>
+        <div class="filterDiv japan"> Эби суши </div>
+        <div class="filterDiv japan"> Унаги Суши </div>
+        <div class="filterDiv japan"> Спайси Сяке Суши </div>
+        <div class="filterDiv japan"> Спайси Эби Суши </div>
+        <div class="filterDiv japan"> Спайси Кани Суши </div>
+        <div class="filterDiv japan"> Спайси Хотатэ Суши </div>
+        <div class="filterDiv japan"> Спайси Магуро Суши </div>
+        <div class="filterDiv japan"> Спайси Унаги Суши </div>
+        <div class="filterDiv japan"> Спайси Ниватори Суши </div>
+        <div class="filterDiv japan"> Спайси хамачи Суши </div>
+        <div class="filterDiv japan"> Тако беби сарада </div>
+        <div class="filterDiv japan"> Хияши вакаме </div>
+        <div class="filterDiv japan"> Тори Кунсэно Сарада </div>
+        <div class="filterDiv japan"> Бифу Сарада </div>
+        <div class="filterDiv japan"> Тяхан </div>
+        <div class="filterDiv japan"> Сифудо Тяхан </div>
+        <div class="filterDiv japan"> Тори Тяхан </div>
+        <div class="filterDiv japan"> Тори Куси-яки </div>
+        <div class="filterDiv japan"> Сяке Куси-яки </div>
+        <div class="filterDiv japan"> Эби Куси-яки </div>
+        <div class="filterDiv japan"> Игай Куси-яки </div>
+        <div class="filterDiv japan"> Кеуно Хамачи Ролл </div>
+        <div class="filterDiv japan"> Соната Ролл </div>
+        <div class="filterDiv japan"> Сяке Калифорния Ролл </div>
+        <div class="filterDiv japan"> Хотатэ Тамаго Ролл </div>
+        <div class="filterDiv japan"> Хотатэ Караи Ролл </div>
+        <div class="filterDiv japan"> Хотатэ сарада </div>
+        <div class="filterDiv japan"> Хотатэ куси-яки </div>
+        <div class="filterDiv japan"> Радуга Ролл </div>
+        <div class="filterDiv japan"> Кагувасэ Ролл </div>
+        <div class="filterDiv japan"> Ика Суши </div>
+        <div class="filterDiv japan"> Магуро Суши </div>
+        <div class="filterDiv japan"> Изум Тай Суши </div>
+        <div class="filterDiv japan"> Хамачи Суши </div>
+        <div class="filterDiv japan"> Тако Суши </div>
+        <div class="filterDiv japan"> Тобико Суши </div>
+        <div class="filterDiv japan"> Хияши Суши </div>
+        <div class="filterDiv japan"> Кани Суши </div>
+        <div class="filterDiv japan"> Каруи Кани Суши </div>
+        <div class="filterDiv japan"> Гюнику Ван Тон </div>
+        <div class="filterDiv japan"> Рифу сарада </div>
+        <div class="filterDiv japan"> Вакамэ су </div>
+        <div class="filterDiv japan"> Салат Цезарь Сан с курицей </div>
+        <div class="filterDiv japan"> Салат Цезарь Сан с креветками </div>
+        <div class="filterDiv japan"> Сашими Тако </div>
+        <div class="filterDiv japan"> Мидори сарада </div>
+        <div class="filterDiv japan"> Мояши сарада </div>
+        <div class="filterDiv japan"> Тори но маринадо </div>
+        <div class="filterDiv japan"> Кудамоно Мориавасэ </div>
+        <div class="filterDiv japan"> Эби уми сарада </div>
+        <div class="filterDiv japan"> Дайкани сарада </div>
+        <div class="filterDiv japan"> Бенису сарада </div>
+        <div class="filterDiv japan"> Амондо сарада </div>
+        <div class="filterDiv japan"> Гюнику татаки </div>
+        <div class="filterDiv japan"> Калифорния Рору </div>
+        <div class="filterDiv japan"> Мидори эби </div>
+        <div class="filterDiv japan"> Умаки </div>
+        <div class="filterDiv japan"> Тори Эби Ван Тон </div>
+        <div class="filterDiv japan"> Гюнику Гёдза </div>
+        <div class="filterDiv japan"> Терияки Гюнику </div>
+        <div class="filterDiv japan"> Терияки Тори </div>
+        <div class="filterDiv japan"> Чизу Гёдза </div>
+        <div class="filterDiv japan"> Карами Ёку (острые куриные крылошки) </div>
+        <div class="filterDiv japan"> Комагири бифу </div>
+        <div class="filterDiv japan"> Тори Рамен </div>
+        <div class="filterDiv japan"> Гюнику Чили </div>
+        <div class="filterDiv japan"> Исикари мисо </div>
+        <div class="filterDiv japan"> Мисо сиру </div>
+        <div class="filterDiv japan"> Самуй сиру </div>
+        <div class="filterDiv japan"> Суймоно </div>
+        <div class="filterDiv japan"> Сякэ тядзукэ </div>
+        <div class="filterDiv japan"> Дофу Хоренсо </div>
+        <div class="filterDiv japan"> Эби Тай Сирy </div>
+        <div class="filterDiv japan"> Эби чили мисо </div>
+        <div class="filterDiv japan"> Том-Ям </div>
+        <div class="filterDiv japan"> Канраку сиру </div>
+        <div class="filterDiv japan"> Бифу Сиру </div>
+        <div class="filterDiv japan"> Унаги Сиру (Суп с угрем) </div>
+        <div class="filterDiv japan"> Камури Сиру </div>
+        <div class="filterDiv japan"> Синдзо сиру </div>
+        <div class="filterDiv japan"> Сифудо качуко </div>
+        <div class="filterDiv japan"> Бифу Тяхан </div>
+        <div class="filterDiv japan"> Гохан </div>
+        <div class="filterDiv japan"> Тамагояки Тяхан </div>
+        <div class="filterDiv japan"> Гюнику Дофу </div>
+        <div class="filterDiv japan"> Бифу сомэн яки </div>
+        <div class="filterDiv japan"> Бифу яки соба </div>
+        <div class="filterDiv japan"> Торинику нудору </div>
+        <div class="filterDiv japan"> Гюнику кадзукири </div>
+        <div class="filterDiv japan"> Эби кадзукири </div>
+        <div class="filterDiv japan"> Хосеки эби </div>
+        <div class="filterDiv japan"> Унайдзю </div>
+        <div class="filterDiv japan"> Ниннику эби </div>
+        <div class="filterDiv japan"> Эби папурика </div>
+        <div class="filterDiv japan"> Васаби игай яки </div>
+        <div class="filterDiv japan"> Якуми Эби </div>
+        <div class="filterDiv japan"> Дорадо </div>
+        <div class="filterDiv japan"> Эби чили футо </div>
+        <div class="filterDiv japan"> Ика Фурай </div>
+        <div class="filterDiv japan"> Тай Пан </div>
+        <div class="filterDiv japan"> Дорадо Футу </div>
+        <div class="filterDiv japan"> Кайго кинкай </div>
+        <div class="filterDiv japan"> Тава изуми </div>
+        <div class="filterDiv japan"> Сифудо кикку </div>
+        <div class="filterDiv japan"> Эби тай хотто </div>
+        <div class="filterDiv japan"> Умисай Гюнику </div>
+        <div class="filterDiv japan"> Умисай Гюнику </div>
+        <div class="filterDiv japan"> Караи Кобэ </div>
+        <div class="filterDiv japan"> Киру кобэ </div>
+        <div class="filterDiv japan"> Куриные ломтики в пикантном соусе </div>
+        <div class="filterDiv japan"> Торинику тидзу </div>
+        <div class="filterDiv japan"> Ханадори то чука </div>
+        <div class="filterDiv japan"> Умисай Ниватори </div>
+        <div class="filterDiv japan"> Киноки тори </div>
+        <div class="filterDiv japan"> Утка Пи Па </div>
+        <div class="filterDiv japan"> Тори Теппан </div>
+        <div class="filterDiv japan"> Сифудо Теппан </div>
+        <div class="filterDiv japan"> Ясай Теппан </div>
+        <div class="filterDiv japan"> Сякэ сутейку </div>
+        <div class="filterDiv japan"> Синдзо куси-яки </div>
+        <div class="filterDiv japan"> Тако куси-яки </div>
+        <div class="filterDiv japan"> Ика куси-яки </div>
+        <div class="filterDiv japan"> Гюнику куси-яки </div>
+        <div class="filterDiv japan"> Хире куси-яки </div>
+        <div class="filterDiv japan"> Коусэн куси-яки </div>
+        <div class="filterDiv japan"> Дофу куси-яки </div>
+        <div class="filterDiv japan"> Сякэ батакон куси-яки </div>
+        <div class="filterDiv japan"> Игай батакон куси-яки </div>
+        <div class="filterDiv japan"> Эби батакон куси-яки </div>
+        <div class="filterDiv japan"> Биру мориавасэ </div>
+        <div class="filterDiv japan"> Сифудо мориавасэ </div>
+        <div class="filterDiv japan"> Куро ёру </div>
+        <div class="filterDiv japan"> Рейси ролл </div>
+        <div class="filterDiv japan"> Нацуми сан </div>
+        <div class="filterDiv japan"> Синдзо ясай </div>
+        <div class="filterDiv japan"> Хотатэ Суши </div>
+        <div class="filterDiv japan"> Хитаки Ниватори </div>
+        <div class="filterDiv japan"> Ика батакон куси-яки </div>
+        <div class="filterDiv japan">Рол Филадельфия</div>
+        <div class="filterDiv uzbek"> Плов Самаркандский <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Манты <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Шурпа <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Лагман <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Слоеные самсы <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Ханум <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Лепешки тандырные <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Пита ближневосточная <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Чебуреки <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Кутабы <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Долма <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Люля кебаб из баранины <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Казан кабоб <br><sub></sub> </div>
+        <div class="filterDiv uzbek"> Салат Ачичук <br><sub></sub> </div>
+        <div class="filterDiv blin"> Блинчик Золотое филе </div>
+        <div class="filterDiv blin"> Блинчик Утка по-Пекински </div>
+        <div class="filterDiv blin"> Блинчик Утка в апельсиновом соусе </div>
+        <div class="filterDiv blin"> Блинчик Черный дракон </div>
+        <div class="filterDiv blin"> Блинчик Сатэй </div>
+        <div class="filterDiv blin"> Блинчик Роти Чанаи Банана </div>
+        <div class="filterDiv blin"> Блинчик Муртабак </div>
+        <div class="filterDiv blin"> Блинчик Строганофф </div>
+        <div class="filterDiv blin"> Блинчик Грибной Кокот </div>
+        <div class="filterDiv blin"> Блинчик Сяке Унаги </div>
+        <div class="filterDiv blin"> Блинчик Кани </div>
+        <div class="filterDiv blin"> Блинчик Караи Кобэ </div>
+        <div class="filterDiv blin"> Блинчик Ори Чумулек </div>
+        <div class="filterDiv blin"> Блинчик Одино Покум </div>
+        <div class="filterDiv blin"> Блинчик Самгёпсаль </div>
+        <div class="filterDiv blin"> Блинчик Ясай </div>
+        <div class="filterDiv blin"> Блинчик Нэм Га </div>
+        <div class="filterDiv blin"> Блинчик Нэм Том </div>
+        <div class="filterDiv blin"> Блинчик Сингапур Слинг </div>
+        <div class="filterDiv blin"> Блинчик Тандори </div>
+        <div class="filterDiv blin"> Блинчик Роти Прата </div>
+        <div class="filterDiv blin"> Блинчик Цыпленок по-Хайнаньски </div>
+        <div class="filterDiv blin"> Блинчик Ростбиф </div>
+        <div class="filterDiv blin"> Блинчик Тика Массала </div>
+        <div class="filterDiv blin"> Блинчик Фиш энд Чипс </div>
+        <div class="filterDiv blin"> Блинчик Баварский </div>
+        <div class="filterDiv blin"> Блинчик Братвурст </div>
+        <div class="filterDiv blin"> Блинчик Шнельклопс </div>
+        <div class="filterDiv blin"> Блинчик Креп-Сюзет </div>
+        <div class="filterDiv blin"> Блинчик Жанбон Фромаж </div>
+        <div class="filterDiv blin"> Блинчик Рататуй </div>
+        <div class="filterDiv blin"> Блинчик Тангири Кабаб </div>
+        <div class="filterDiv blin"> Блинчик Карри </div>
+        <div class="filterDiv blin"> Блинчик Навратан Корма </div>
+        <div class="filterDiv blin"> Блинчик Барамунди </div>
+        <div class="filterDiv blin"> Блинчик Ламингтон </div>
+        <div class="filterDiv blin"> Блинчик Том Ям </div>
+        <div class="filterDiv blin"> Блинчик Сом Там </div>
+        <div class="filterDiv blin"> Блинчик Пананг Гай </div>
+        <div class="filterDiv blin"> Блинчик Пад Га Пау </div>
+        <div class="filterDiv blin"> Блинчик Кесадилья с ветчиной </div>
+        <div class="filterDiv blin"> Блинчик Фахитос </div>
+        <div class="filterDiv blin"> Блинчик Чили Кон Карне </div>
+        <div class="filterDiv blin"> Блинчик Цезарь </div>
+        <div class="filterDiv blin"> Блинчик Биф Бургер </div>
+        <div class="filterDiv blin"> Блинчик Кентукки Фрайд Чикен </div>
+        <div class="filterDiv blin"> Блинчик Кватро Формаджи </div>
+        <div class="filterDiv blin"> Блинчик Маргарита </div>
+        <div class="filterDiv blin"> Блинчик Карбонара </div>
+        <div class="filterDiv blin"> Блинчик Хумус </div>
+        <div class="filterDiv blin"> Блинчик Фалафель </div>
+        <div class="filterDiv blin"> Блинчик Аль Ха Эш </div>
+        <div class="filterDiv blin"> Блинчик Ачук-Чучук </div>
+        <div class="filterDiv blin"> Блинчик Кебаб </div>
+        <div class="filterDiv blin"> Блинчик Аджапсандал </div>
+        <div class="filterDiv blin"> Блинчик Stroganoff </div>
+        <div class="filterDiv blin"> Блинчик с курицей и грибами </div>
+        <div class="filterDiv blin"> Блинчик Лесная Ягода </div>
+        <div class="filterDiv blin"> Блинчик Фруктовый Ролл </div>
+        <div class="filterDiv blin"> Блинчик с ветчиной и грибами </div>
+        <div class="filterDiv blin"> Блинчик с мясом, грибами и сыром </div>
+        <div class="filterDiv blin"> Блинчик Банан-Шоколад </div>
+        <div class="filterDiv blin"> Блинчик Пина Колада </div>
+        <div class="filterDiv blin"> Блинчик с креветками в соусе Коктейль </div>
+        <div class="filterDiv blin"> Блинчик с грибами и сыром </div>
+        <div class="filterDiv blin"> Блинчик Черный Лес </div>
+        <div class="filterDiv blin"> Блинчик со сметаной </div>
+        <div class="filterDiv blin"> Блинчик Студенческий </div>
+        <div class="filterDiv blin"> Блинчик с мясом </div>
+        <div class="filterDiv blin"> Блинчик Тирамису </div>
+        <div class="filterDiv blin"> Блинчик Грушевый Пай </div>
+        <div class="filterDiv blin"> Блинчик Богатырский </div>
+        <div class="filterDiv blin"> Блинчик Фахитос </div>
+        <div class="filterDiv blin"> Блинчик Клубника со сливками </div>
+        <div class="filterDiv blin"> Блинчик с курицей и беконом </div>
+        <div class="filterDiv blin"> Блинчик с курицей, грибами и сыром </div>
+        <div class="filterDiv blin"> Блинчик с красной икрой </div>
+        <div class="filterDiv blin"> Блинчик Вишневый Йогурт </div>
+        <div class="filterDiv blin"> Блинчик со сметаной и ягодным топингом (порция) </div>
+        <div class="filterDiv blin"> Блинчик с курицей грибами и сыром </div>
+        <div class="filterDiv blin"> Блинчик Бургер BBQ </div>
+        <div class="filterDiv blin"> Блинчик Цезарь с курицей </div>
+        <div class="filterDiv blin"> Блинчик курица Террияки </div>
+        <div class="filterDiv blin"> Блинчик с ветчиной и сыром </div>
+        <div class="filterDiv blin"> Блинчик Баварский </div>
+        <div class="filterDiv blin"> Блинчик с бужениной </div>
+        <div class="filterDiv blin"> Блинчик Жульен </div>
+        <div class="filterDiv blin"> Блинчик шаурма </div>
+        <div class="filterDiv blin"> Блинчик Нутелла </div>
+        <div class="filterDiv blin"> Блинчик Рыбка </div>
+        <div class="filterDiv blin"> Блинчик BIG BLIN </div>
+        <div class="filterDiv blin"> Блинчик Американский </div>
+        <div class="filterDiv blin"> Блинчик Манго чиз </div>
+        <div class="filterDiv blin"> Блинчик с семужкой </div>
+        <div class="filterDiv blin"> Блинчик пшеничные с воздушным кремом </div>
+        <div class="filterDiv blin"> Блинчик рисовый с яблоком и корицей </div>
+        <div class="filterDiv blin"> Блинчик "Меньшиков" </div>
+        <div class="filterDiv blin"> Блинчик рисовый с муссом из печенных яблок </div>
+        <div class="filterDiv blin"> Блинчик с медом и вареньем </div>
+        <div class="filterDiv blin"> Блинчик нутовый с заатаром и баклажанами с йогуртом </div>
+        <div class="filterDiv blin"> Блинчик с трюфелем </div>
+        <div class="filterDiv blin"> Блинчик кетто </div>
+    </div>
+
+    <script>
+        filterSelection("all")
+
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                    element.className += " " + arr2[i];
+                }
+            }
+        }
+
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Добавьте активный класс к текущей кнопке (выделите его)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+
+</body>
+
+</html>
+</div>
+<!-- Optional JavaScript; choose one of the two! -->
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

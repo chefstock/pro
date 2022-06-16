@@ -1,0 +1,1491 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>CHEFSTOCK PRO platform</title>
+</head>
+
+<body>
+  <h1>страница находится на стадии разработки</h1>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Platform</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gr.html">готовые решения</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">контакты</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="answers.html">вопросы и ответы</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">образцы</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="pdf/tk.pdf">тк</a></li>
+              <li><a class="dropdown-item" href="pdf/ttk.pdf">ттк</a></li>
+              <li><a class="dropdown-item" href="pdf/akt.pdf">акт проработки</a></li>
+              <li><a class="dropdown-item" href="pdf/obs.pdf">обоснование</a></li>
+              <li><a class="dropdown-item" href="pdf/clc.pdf">калькуляционная карта</a></li>
+              <li><a class="dropdown-item" href="pdf/kall.pdf">лист каллорийности</a></li>
+              <li><a class="dropdown-item" href="pdf/list.pdf">информационный лист</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <style>
+    .filterDiv {
+      background-color: #f1f1f1;
+      color: black;
+      width: 350px;
+      line-height: 15px;
+      text-align: center;
+      margin: 2px;
+      padding: 5px;
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+
+    .container {
+      margin-top: 20px;
+      overflow: hidden;
+    }
+
+    /* Стиль кнопок */
+    .btn {
+      border-top: 6px solid #464646;
+      outline: none;
+      padding: 12px 16px;
+      background-color: #ddd;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #ddd;
+    }
+
+    .btn.active {
+      background-color: #666;
+      color: white;
+    }
+  </style>
+  <div id="myBtnContainer">
+    <button class="btn" onclick="filterSelection('sup')">супы</button>
+    <button class="btn" onclick="filterSelection('salat')">салаты</button>
+    <button class="btn" onclick="filterSelection('zavtrak')">завтраки</button>
+    <button class="btn" onclick="filterSelection('chicken')">блюда из птицы</button>
+    <button class="btn" onclick="filterSelection('beef')">мясные блюда</button>
+    <button class="btn" onclick="filterSelection('fish')">рыба и морепродукты</button>
+    <button class="btn" onclick="filterSelection('pizza')">пицца & паста</button>
+    <button class="btn" onclick="filterSelection('garnir')">гарниры и овощные блюда</button>
+    <button class="btn" onclick="filterSelection('bakery')">выпечка</button>
+    <button class="btn" onclick="filterSelection('bread')">хлеб</button>
+    <button class="btn" onclick="filterSelection('burger')">сэндвичи и бургеры</button>
+    <button class="btn" onclick="filterSelection('drinks')">напитки</button>
+    <!-- <button class="btn active" onclick="filterSelection('all')"> Показать все</button> -->
+  </div>
+
+  <div class="container">
+    <div class="filterDiv sup"> Суп с фрикадельками </div>
+    <div class="filterDiv sup"> Суп харчо </div>
+    <div class="filterDiv sup"> Суп Минестроне </div>
+    <div class="filterDiv sup"> Крем суп из лесных грибов </div>
+    <div class="filterDiv sup"> Борщ с пампушками </div>
+    <div class="filterDiv sup"> Крем-суп с копчеными колбасками </div>
+    <div class="filterDiv sup"> Суп фасолевый с копченностями </div>
+    <div class="filterDiv sup"> Суп Гороховый </div>
+    <div class="filterDiv sup"> Суп - лапша с грибами </div>
+    <div class="filterDiv sup"> Суп рыбный </div>
+    <div class="filterDiv sup"> Рассольник Ленинградский </div>
+    <div class="filterDiv sup"> Лапша с овощами </div>
+    <div class="filterDiv sup"> Щи из свежей капусты </div>
+    <div class="filterDiv sup"> Шурпа из говядины </div>
+    <div class="filterDiv sup"> Суп грибной с картофелем </div>
+    <div class="filterDiv sup"> Суп с морепродуктами </div>
+    <div class="filterDiv sup"> Суп фасолевый </div>
+    <div class="filterDiv sup"> Суп с говядиной, картофелем и овощами </div>
+    <div class="filterDiv sup"> Дынный суп с базиликом </div>
+    <div class="filterDiv sup"> Тайский суп Tom Kha </div>
+    <div class="filterDiv sup"> Дзуппа ди пейше (Рыбный суп) </div>
+    <div class="filterDiv sup"> Суп Грибной </div>
+    <div class="filterDiv sup"> Томатный суп с курицей и сельдереем </div>
+    <div class="filterDiv sup"> Суп гречневый с грибами </div>
+    <div class="filterDiv sup"> Суп с куриной грудкой и цельнозерновой лапшей </div>
+    <div class="filterDiv sup"> Суп из куриной грудки с зеленым горошком </div>
+    <div class="filterDiv sup"> Бульон из индейки с брокколи </div>
+    <div class="filterDiv sup"> Суп Pasta e Fagioli </div>
+    <div class="filterDiv sup"> Уха из разнорыбицы </div>
+    <div class="filterDiv sup"> Суп Крем Грибной </div>
+    <div class="filterDiv sup"> Суп Буйабес </div>
+    <div class="filterDiv sup"> Уха из трех видов белой рыбы </div>
+    <div class="filterDiv sup"> Уха из Семги новая </div>
+    <div class="filterDiv sup"> Уха "Русь" </div>
+    <div class="filterDiv sup"> Уха по-Фински </div>
+    <div class="filterDiv sup"> Крем-суп с лососем </div>
+    <div class="filterDiv sup"> Суп Каппучино с креветками </div>
+    <div class="filterDiv sup"> Крем-суп из шпината </div>
+    <div class="filterDiv sup"> Суп с фрикадельками по-Неапольски </div>
+    <div class="filterDiv sup"> Крем-суп Сырный </div>
+    <div class="filterDiv sup"> Суп фасолеый с говядиной </div>
+    <div class="filterDiv sup"> Тыквенный крем суп с крабами и страчателлой </div>
+    <div class="filterDiv sup"> Томатный суп с морепродуктами </div>
+    <div class="filterDiv sup"> Суп куриный с лапшой </div>
+    <div class="filterDiv sup"> Крем суп из тыквы </div>
+    <div class="filterDiv sup"> Крем суп из красной чичевицы </div>
+    <div class="filterDiv sup"> Крем суп из томатов </div>
+    <div class="filterDiv sup"> Кукурузный суп с крабом </div>
+    <div class="filterDiv sup"> Суп лапша с куриными фрикадельками </div>
+    <div class="filterDiv sup"> Суп сырный </div>
+    <div class="filterDiv sup"> Суп томатный с говядиной и кимчи </div>
+    <div class="filterDiv sup"> Суп куриный </div>
+    <div class="filterDiv sup"> Крем суп из шампиньонов </div>
+    <div class="filterDiv sup"> Крем суп из шпината (легкий) </div>
+    <div class="filterDiv sup"> Щи с зеленым шпинатом </div>
+    <div class="filterDiv sup"> Суп куриный с вермишелью </div>
+    <div class="filterDiv sup"> Суп куриный картофельный </div>
+    <div class="filterDiv sup"> Суп куриный с рисом </div>
+    <div class="filterDiv sup"> Суп Лапша Суздальская </div>
+    <div class="filterDiv sup"> Суп гороховый с копченостями </div>
+    <div class="filterDiv sup"> Суп овощной (легкий) </div>
+    <div class="filterDiv sup"> Окрошка </div>
+    <div class="filterDiv sup"> Бульон куриный с зеленью </div>
+    <div class="filterDiv sup"> Бульон овощной с зеленью </div>
+    <div class="filterDiv sup"> Шурпа из баранины </div>
+    <div class="filterDiv sup"> Том-Ям с лососем </div>
+    <div class="filterDiv sup"> Суп Каппучино с грибами </div>
+    <div class="filterDiv sup"> Суп Лапша куриная </div>
+    <div class="filterDiv sup"> Солянка </div>
+    <div class="filterDiv sup"> Прозрачный бульон с фрикадельками </div>
+    <div class="filterDiv sup"> Борщ </div>
+    <div class="filterDiv sup"> Консоме с яйцом пашот </div>
+    <div class="filterDiv sup"> Уха с судаком </div>
+    <div class="filterDiv sup"> Гаспаччо из томатов </div>
+    <div class="filterDiv sup"> Гаспаччо клубничное </div>
+    <div class="filterDiv sup"> Уха с крабовыми фрикадельками </div>
+    <div class="filterDiv sup"> Окрошка сборная мясная </div>
+    <div class="filterDiv sup"> Бульон куриный с фрикадельками и клецками </div>
+    <div class="filterDiv sup"> Домашняя лапша </div>
+    <div class="filterDiv sup"> Желтый гаспачо с нектаринами </div>
+    <div class="filterDiv sup"> Корейская похлебка с кимчи </div>
+    <div class="filterDiv salat"> Салат из копченого сыра </div>
+    <div class="filterDiv salat"> Салат Австрийский </div>
+    <div class="filterDiv salat"> Салат Острый из баклажан </div>
+    <div class="filterDiv salat"> Салат А-ля Руссия </div>
+    <div class="filterDiv salat"> Салат Цезарь с куриным филе </div>
+    <div class="filterDiv salat"> Салат Греческий </div>
+    <div class="filterDiv salat"> Салат Оливье </div>
+    <div class="filterDiv salat"> Мангал - салат </div>
+    <div class="filterDiv salat"> Салат из свежих овощей </div>
+    <div class="filterDiv salat"> Салат из моркови с майонезом </div>
+    <div class="filterDiv salat"> Салат из свеклы с черносливом </div>
+    <div class="filterDiv salat"> Салат из белой редьки </div>
+    <div class="filterDiv salat"> Салат Еврейская закуска </div>
+    <div class="filterDiv salat"> Салат Крабовый с рисом и грибами </div>
+    <div class="filterDiv salat"> Салат с жареными грибами и куриным филе </div>
+    <div class="filterDiv salat"> Салат Крабовый с яблоками </div>
+    <div class="filterDiv salat"> Салат Джой </div>
+    <div class="filterDiv salat"> Салат Рицца (теплый салат с рисом) </div>
+    <div class="filterDiv salat"> Салат Крабовый </div>
+    <div class="filterDiv salat"> Салат из ветчины с грибами и томатами </div>
+    <div class="filterDiv salat"> Салат Столичный </div>
+    <div class="filterDiv salat"> Салат Корейская морковь </div>
+    <div class="filterDiv salat"> Салат из свежей капусты с горошком </div>
+    <div class="filterDiv salat"> Салат с ветчиной и грибами </div>
+    <div class="filterDiv salat"> Салат Степной </div>
+    <div class="filterDiv salat"> Салат из капусты белокочанной </div>
+    <div class="filterDiv salat"> Салат из редиса с яйцом </div>
+    <div class="filterDiv salat"> Салат из капусты по - корейски </div>
+    <div class="filterDiv salat"> Салат из свежей капусты с огурцом и зеленью </div>
+    <div class="filterDiv salat"> Салат из свеклы с чесноком и грецким орехом </div>
+    <div class="filterDiv salat"> Салат Витаминный </div>
+    <div class="filterDiv salat"> Салат из свеклы с сыром и чесноком </div>
+    <div class="filterDiv salat"> Салат Витаминный с морковью </div>
+    <div class="filterDiv salat"> Салат Витаминный со свеклой </div>
+    <div class="filterDiv salat"> Салат Мимоза </div>
+    <div class="filterDiv salat"> Салат Шопский </div>
+    <div class="filterDiv salat"> Салат Фруктовый </div>
+    <div class="filterDiv salat"> Салат Оливье с курицей </div>
+    <div class="filterDiv salat"> Салат Гранатовый Браслет </div>
+    <div class="filterDiv salat"> Салат Винегрет с сельдью </div>
+    <div class="filterDiv salat"> Салат Коул Слоу </div>
+    <div class="filterDiv salat"> Салат Тайский </div>
+    <div class="filterDiv salat"> Салат из креветок со свежими шампиньонами </div>
+    <div class="filterDiv salat"> Салат Капрезе </div>
+    <div class="filterDiv salat"> Салат Медитерране </div>
+    <div class="filterDiv salat"> Салат из свежих овощей с вялеными томатами </div>
+    <div class="filterDiv salat"> Салат Панцанелла </div>
+    <div class="filterDiv salat"> Салат Уолдорф </div>
+    <div class="filterDiv salat"> Салат из морских водорослей с огурцом </div>
+    <div class="filterDiv salat"> Салат из зелени с грибами и миндалем </div>
+    <div class="filterDiv salat"> Салат с креветками и моцареллой </div>
+    <div class="filterDiv salat"> Салат из куриной грудки с овощами </div>
+    <div class="filterDiv salat"> Салат из куриной печени </div>
+    <div class="filterDiv salat"> Салат из авокадо и шпината </div>
+    <div class="filterDiv salat"> Зеленый салат с виноградом и козьим сыром </div>
+    <div class="filterDiv salat"> Салат с рукколой, базиликом и грибами </div>
+    <div class="filterDiv salat"> Салат Баклажанный по-Корейски </div>
+    <div class="filterDiv salat"> Салат из сельдерея с манго </div>
+    <div class="filterDiv salat"> Салат из куриной грудки с яблоками </div>
+    <div class="filterDiv salat"> Салат из куриной грудки с апельсином и креветками </div>
+    <div class="filterDiv salat"> Салат Цезарь с креветками </div>
+    <div class="filterDiv salat"> Салат Цезарь с лососем </div>
+    <div class="filterDiv salat"> Салат из утиной грудки </div>
+    <div class="filterDiv salat"> Салат Теплый Ирландский </div>
+    <div class="filterDiv salat"> Салат Цезарь с цыпленком </div>
+    <div class="filterDiv salat"> Корейский салат с говядиной </div>
+    <div class="filterDiv salat"> Салат Греческий с каперсами и гигантскими оливками </div>
+    <div class="filterDiv salat"> Салат из копченой куриной грудки с голубым сыром, орехами и рукколой </div>
+    <div class="filterDiv salat"> Салат из креветок на карпаччо из помидор </div>
+    <div class="filterDiv salat"> Летний салат с рукколой и клубникой </div>
+    <div class="filterDiv salat"> Мачедония (фруктовый салат) </div>
+    <div class="filterDiv salat"> Салат из ростбифа с сырными крокетами </div>
+    <div class="filterDiv salat"> Салат Капрезе из телятины с помидорами </div>
+    <div class="filterDiv salat"> Салат из жареных грибов Портобелло </div>
+    <div class="filterDiv salat"> Салат с куриным филе и козьим сыром </div>
+    <div class="filterDiv salat"> Салат с жареным сыром и миксом салатов </div>
+    <div class="filterDiv salat"> Салат из куриной грудки с зеленой фасолью </div>
+    <div class="filterDiv salat"> Салат Коктейль с копченой куриной грудкой </div>
+    <div class="filterDiv salat"> Салат из рукколы с гранатом </div>
+    <div class="filterDiv salat"> Салат Рапинато </div>
+    <div class="filterDiv salat"> Салат Черри Моцарелла </div>
+    <div class="filterDiv salat"> Салат из говядины на гриле с помидорами </div>
+    <div class="filterDiv salat"> Салат с куриным террином </div>
+    <div class="filterDiv salat"> Салат Кардини </div>
+    <div class="filterDiv salat"> Салат с лососем </div>
+    <div class="filterDiv salat"> Салат с лососем, икрой и соусом Массага </div>
+    <div class="filterDiv salat"> Салат с куриным филе и омлетом </div>
+    <div class="filterDiv salat"> Салат Цезарь с угрем </div>
+    <div class="filterDiv salat"> Салат из спаржи с жаренного картофеля </div>
+    <div class="filterDiv salat"> Салат из шпината и копченого лосося </div>
+    <div class="filterDiv salat"> Салат Снежный Краб </div>
+    <div class="filterDiv salat"> Салат с крабовыми колбасками и фирменным соусом </div>
+    <div class="filterDiv salat"> Салат с хрустящими креветками </div>
+    <div class="filterDiv salat"> Салат Русский с лососем </div>
+    <div class="filterDiv salat"> Салат Русский Цезарь </div>
+    <div class="filterDiv salat"> Салат Оливье 1905 года </div>
+    <div class="filterDiv salat"> Сельдь с луком </div>
+    <div class="filterDiv salat"> Салат Мясной с молодым горошком </div>
+    <div class="filterDiv salat"> Салат из баклажанов, мяса и кураги </div>
+    <div class="filterDiv salat"> Салат Винегрет со слабосоленой сельдью </div>
+    <div class="filterDiv salat"> Салат с креветками и авокадо </div>
+    <div class="filterDiv salat"> Салат из бакинских помидоров с наршарабом и сыром чечил </div>
+    <div class="filterDiv salat"> Салат с папайей , жареными креветками и кремом из арахиса . </div>
+    <div class="filterDiv salat"> Салат Цезарь с курицей </div>
+    <div class="filterDiv salat"> Салат Цезарь с опаленным лососем </div>
+    <div class="filterDiv salat"> Оливье Люсьен с красной икрой </div>
+    <div class="filterDiv salat"> Салат Охотничий </div>
+    <div class="filterDiv salat"> Салат Нисуаз </div>
+    <div class="filterDiv salat"> Салат с грушами и сыром рокфор </div>
+    <div class="filterDiv salat"> Салат грин с ростбифом и ягодным соусом </div>
+    <div class="filterDiv salat"> Салат грин с сыром страчателла и соусом песто </div>
+    <div class="filterDiv salat"> Салат из свежей капусты </div>
+    <div class="filterDiv salat"> Салат Заморский </div>
+    <div class="filterDiv salat"> Салат Поляна </div>
+    <div class="filterDiv salat"> Салат Балантон </div>
+    <div class="filterDiv salat"> Салат Аля Цезарь "Император" </div>
+    <div class="filterDiv salat"> Салат из овощей </div>
+    <div class="filterDiv salat"> Салат Грин X&F </div>
+    <div class="filterDiv salat"> Салат Алжирский </div>
+    <div class="filterDiv salat"> Салат Нептун </div>
+    <div class="filterDiv salat"> Салат Крабовые сласти </div>
+    <div class="filterDiv salat"> Салат Морской коктейль </div>
+    <div class="filterDiv salat"> Салат Сладкая креветка </div>
+    <div class="filterDiv salat"> Салат Вдохновенье </div>
+    <div class="filterDiv salat"> Салат Любимчик </div>
+    <div class="filterDiv salat"> Салат fresh с авокадо и кедровыми орешками </div>
+    <div class="filterDiv salat"> Салат с нутом,баклажаном и мятой </div>
+    <div class="filterDiv salat"> Салат с огурцами и мясом по корейски </div>
+    <div class="filterDiv salat"> Салат из свеклы с творогом </div>
+    <div class="filterDiv salat"> Салат из свежих овощей с курицей </div>
+    <div class="filterDiv salat"> Салат с сельдереем,свеклой и кедровыми орешками </div>
+    <div class="filterDiv salat"> Салат итальянский с фузили и ветчиной </div>
+    <div class="filterDiv salat"> Салат из квашенной капусты с фруктами </div>
+    <div class="filterDiv salat"> Салат с голубикой </div>
+    <div class="filterDiv salat"> Салат Мясной в паназиатском стиле </div>
+    <div class="filterDiv salat"> Теплый салат из языка с картофельными дранниками </div>
+    <div class="filterDiv salat"> Салат из буженины с сыром </div>
+    <div class="filterDiv salat"> Теплый салат с лисичками и кремом из горгонзолы </div>
+    <div class="filterDiv salat"> Салат Греческий с фетой </div>
+    <div class="filterDiv salat"> Салат с печенной свеклой и брынзой </div>
+    <div class="filterDiv salat"> Салат Ампир </div>
+    <div class="filterDiv salat"> Салат Акапулько </div>
+    <div class="filterDiv salat"> Салат Чабан </div>
+    <div class="filterDiv salat"> Салат с фасолью и соус песто с артишоками </div>
+    <div class="filterDiv salat"> Салат с моцареллой и соусом гуакомоле </div>
+    <div class="filterDiv salat"> Фруктовый салат </div>
+    <div class="filterDiv salat"> Французский салат с грибами </div>
+    <div class="filterDiv salat"> Сельдь под шубой </div>
+    <div class="filterDiv salat"> Авокадо бар с томатами,мини моцареллой и соусом песто </div>
+    <div class="filterDiv salat"> Авокадо бар с виноградом орехами и сыром дор блю </div>
+    <div class="filterDiv salat"> Фруктовая нарезка </div>
+    <div class="filterDiv salat"> Канапе клубника камамбер </div>
+    <div class="filterDiv salat"> Пришепка с ростбифом </div>
+    <div class="filterDiv salat"> Тапас с сельдью </div>
+    <div class="filterDiv salat"> Фруктовое ассорти </div>
+    <div class="filterDiv salat"> Грибочки из бочки </div>
+    <div class="filterDiv salat"> Овощная нарезка </div>
+    <div class="filterDiv salat"> Рулетики из ветчины фаршированные сыром и чесноком </div>
+    <div class="filterDiv salat"> Закуска Хуторская </div>
+    <div class="filterDiv salat"> Грибочки из яиц фаршированные печенью трески </div>
+    <div class="filterDiv salat"> Помидоры фаршированные Триумф </div>
+    <div class="filterDiv salat"> Сельдь с отварным картофелем </div>
+    <div class="filterDiv salat"> Сырное трио </div>
+    <div class="filterDiv salat"> Аджапсандали </div>
+    <div class="filterDiv salat"> Рыбное ассорти </div>
+    <div class="filterDiv salat"> Букет из свещей зелени с овощами </div>
+    <div class="filterDiv salat"> Язычки из бакложан </div>
+    <div class="filterDiv salat"> Ассорти из солений </div>
+    <div class="filterDiv salat"> Ассорти из оливок и маслин </div>
+    <div class="filterDiv salat"> Валованы с лососевым мусом и красной икрой </div>
+    <div class="filterDiv salat"> Заливное из говядины </div>
+    <div class="filterDiv salat"> Ассорти сыров </div>
+    <div class="filterDiv salat"> Фруктовый салат </div>
+    <div class="filterDiv salat"> Карпаччо из свежих томатов </div>
+    <div class="filterDiv salat"> Тартар из фруктов </div>
+    <div class="filterDiv salat"> Рыбная тарелка </div>
+    <div class="filterDiv salat"> Рулетики из баклажан по-Абхазски </div>
+    <div class="filterDiv salat"> Мясное плато (банкетное) </div>
+    <div class="filterDiv salat"> Ассорти канапе </div>
+    <div class="filterDiv salat"> Ассорти канапе на шпажке </div>
+    <div class="filterDiv salat"> Тарталетки со сливочным сыром и красной икрой </div>
+    <div class="filterDiv salat"> Сырное плато Классические сыры для четырех человек </div>
+    <div class="filterDiv salat"> Сырное плато Молодые сыры и зелень </div>
+    <div class="filterDiv salat"> Плато Сыр & Мясо </div>
+    <div class="filterDiv salat"> Плато Сыр & Рыба </div>
+    <div class="filterDiv salat"> Сырное плато Десертные сыры </div>
+    <div class="filterDiv salat"> Плато Большое Сыр & Мясо </div>
+    <div class="filterDiv salat"> Горячая рыбная тарелка </div>
+    <div class="filterDiv salat"> Сырное плато </div>
+    <div class="filterDiv salat"> Карпаччо из лосося </div>
+    <div class="filterDiv salat"> Карпаччо из тунца </div>
+    <div class="filterDiv salat"> Тар тар из томатов с клубникой и сыром страчателла </div>
+    <div class="filterDiv salat"> Лепестки хурмы с сыром </div>
+    <div class="filterDiv salat"> Бурата с томатами и персиками </div>
+    <div class="filterDiv salat"> Грин боул с сыром страчателла </div>
+    <div class="filterDiv salat"> Грин боул с страчателлой и перцем </div>
+    <div class="filterDiv salat"> Карпачо из вырезки </div>
+    <div class="filterDiv salat"> Грин боул с ростбифом.. </div>
+    <div class="filterDiv salat"> Холодец из трех видов мяса с горчицей и хреном </div>
+    <div class="filterDiv salat"> Сельдь в банке </div>
+    <div class="filterDiv salat"> Сациви из курицы </div>
+    <div class="filterDiv salat"> Рулетики из лаваша c семгой и творожным сыром </div>
+    <div class="filterDiv salat"> Соленья по домашнему </div>
+    <div class="filterDiv salat"> Карпаччо из говядины с бальзамическим соусом </div>
+    <div class="filterDiv salat"> Сырная тарелка </div>
+    <div class="filterDiv salat"> Карпаччо из говядины с соусом Горгонцолла </div>
+    <div class="filterDiv salat"> Помидоры черри фаршированные </div>
+    <div class="filterDiv salat"> Ассорти из сыров с виноградом (канапе) </div>
+    <div class="filterDiv salat"> Домашние соленья </div>
+    <div class="filterDiv salat"> Мясное плато </div>
+    <div class="filterDiv salat"> Винегрет овощной </div>
+    <div class="filterDiv salat"> Винегрет мясной </div>
+    <div class="filterDiv salat"> Ассорти из маринованных грибов </div>
+    <div class="filterDiv salat"> Винегрет мясной </div>
+    <div class="filterDiv salat"> Оливки и Маслины </div>
+    <div class="filterDiv salat"> Мини салат </div>
+    <div class="filterDiv salat"> Французский салат с грибами </div>
+    <div class="filterDiv zavtrak"> Каша рисовая с цукатами </div>
+    <div class="filterDiv zavtrak"> Каша овсяная сваренная на яблочном соке с ягодами </div>
+    <div class="filterDiv zavtrak"> Каша рисовая с карамельными яблоками </div>
+    <div class="filterDiv zavtrak"> Каша овсяная с жареными бананами </div>
+    <div class="filterDiv zavtrak"> Каша манная Клубника со сливками </div>
+    <div class="filterDiv zavtrak"> Каша овсяная традиционная на кокосовом молоке </div>
+    <div class="filterDiv zavtrak"> Каша овсяная традиционная на воде </div>
+    <div class="filterDiv zavtrak"> Каша овсяная традиционная на молоке </div>
+    <div class="filterDiv zavtrak"> Каша овсяная традиционная " Осень" на кокосовом молоке </div>
+    <div class="filterDiv zavtrak"> Каша овсяная традиционная " Осень" на молоке </div>
+    <div class="filterDiv zavtrak"> Боул овсяный бар/ваниль,гвоздика,подпеченный инжир,сливы и миндальное молоко </div>
+    <div class="filterDiv zavtrak"> Боул овяный бар/изюм,обжаренный фундук,клубника,ежевика </div>
+    <div class="filterDiv zavtrak"> Боул овяный бар/ваниль,корица,мускатный орех,запеченный батат в маковой
+      панировке,красный халапеньо,изюм и пекан </div>
+    <div class="filterDiv zavtrak"> Боул овяный бар/сморы с ванилью и корицей </div>
+    <div class="filterDiv zavtrak"> Боул овяный бар/ваниль,мускатный орех,изюм,хлопья из отрубей с бананом и черникой
+    </div>
+    <div class="filterDiv zavtrak"> Боул овяный бар/ваниль,кардамон с гранолой,малина и обжаренные фисташки </div>
+    <div class="filterDiv zavtrak"> Боул овяный бар/ваниль,корица,карамелизированные яблоки, ягоды и грецкий орех </div>
+    <div class="filterDiv zavtrak"> Боул овяный бар/ваниль,имбирь,персики,финики,кокос,пекан и мята </div>
+    <div class="filterDiv zavtrak"> Боул овяный бар/ваниль,корица,жаренный миндаль,бананы,черника и мята </div>
+    <div class="filterDiv zavtrak"> Боул с полбой,моцареллой,томатами черри,авокадо и базиликом </div>
+    <div class="filterDiv zavtrak"> Каша овсяная с яблоком </div>
+    <div class="filterDiv zavtrak"> Каша овсяная на овсяном молоке с семенами чиа </div>
+    <div class="filterDiv zavtrak"> Каша рисовая с яблоками и корицей </div>
+    <div class="filterDiv zavtrak"> Английский завтрак </div>
+    <div class="filterDiv zavtrak"> Омлет с овощами </div>
+    <div class="filterDiv zavtrak"> Омлет с ветчиной </div>
+    <div class="filterDiv zavtrak"> Омлет классический </div>
+    <div class="filterDiv zavtrak"> Омлет с сыром </div>
+    <div class="filterDiv zavtrak"> Омлет с грибами </div>
+    <div class="filterDiv zavtrak"> Омлет с вяленными томатами </div>
+    <div class="filterDiv zavtrak"> Омлет с Рикотой и овощами </div>
+    <div class="filterDiv zavtrak"> Омлет с ветчиной и сыром </div>
+    <div class="filterDiv zavtrak"> Омлет из 2 яиц </div>
+    <div class="filterDiv zavtrak"> Скрэмбл с томатами и зеленью </div>
+    <div class="filterDiv zavtrak"> Скрембл белковый с рикоттой и овощами </div>
+    <div class="filterDiv zavtrak"> Скрембл с печенными овощами </div>
+    <div class="filterDiv zavtrak"> Яичница глазунья </div>
+    <div class="filterDiv zavtrak"> Глазунья из 3 яиц </div>
+    <div class="filterDiv zavtrak"> Яйцо Пашот на подушке из шпината </div>
+    <div class="filterDiv zavtrak"> Соленые сырники с зеленью и вялеными томатами </div>
+    <div class="filterDiv zavtrak"> Сырники со сметаной и ягодами </div>
+    <div class="filterDiv zavtrak"> Сырники творожные безглютеновые </div>
+    <div class="filterDiv zavtrak"> Сырники из рикотты и творога </div>
+    <div class="filterDiv zavtrak"> Сырники с облепихой и вишневым конфитюром </div>
+    <div class="filterDiv zavtrak"> Сырники с изюмом </div>
+    <div class="filterDiv zavtrak"> Творожная Пасха с шоколадом и клюквой </div>
+    <div class="filterDiv zavtrak"> Творожная пасха с орехами </div>
+    <div class="filterDiv zavtrak"> Запеканка творожная с яблочно-облепиховым конфитюром </div>
+    <div class="filterDiv zavtrak"> Запеканка овсянная с малиновым конфитюром </div>
+    <div class="filterDiv zavtrak"> Запеканка воздушная с мятно персиковым смузи </div>
+    <div class="filterDiv zavtrak"> Запеканка из рикотты с кокосом </div>
+    <div class="filterDiv zavtrak"> Творожный торт с малиной </div>
+    <div class="filterDiv zavtrak"> Десерт из творога с горьким шоколадом </div>
+    <div class="filterDiv zavtrak"> Запеканка из творога с семенами льна и грецким орехом </div>
+    <div class="filterDiv zavtrak"> Запеканка воздушная с клубнично ананасовым смузи </div>
+    <div class="filterDiv zavtrak"> Оладьи тыквенные </div>
+    <div class="filterDiv zavtrak"> Оладьи овощные диетические </div>
+    <div class="filterDiv zavtrak"> Оладьи </div>
+    <div class="filterDiv zavtrak"> Мюсли с лесными орехами, фруктами и йогуртом </div>
+    <div class="filterDiv zavtrak"> Творожный крем с фруктами и кленовым сиропом </div>
+    <div class="filterDiv zavtrak"> Творожный крем с фруктами и кленовым сиропом </div>
+    <div class="filterDiv zavtrak"> Панна котта с клубникой </div>
+    <div class="filterDiv zavtrak"> Гранола и творог с яблочно вишневым конфитюром </div>
+    <div class="filterDiv zavtrak"> Круассан с шоколадом </div>
+    <div class="filterDiv zavtrak"> Круассан с джемом и маслом </div>
+    <div class="filterDiv zavtrak"> Круассан с лососем,сливочным сыром и зеленью </div>
+    <div class="filterDiv zavtrak"> Йогуртовый мусс с клубникой и киви </div>
+    <div class="filterDiv zavtrak"> Боул с йогуртом,ягодами и гранолой </div>
+    <div class="filterDiv zavtrak"> Персики запеченные с творожным муссом </div>
+    <div class="filterDiv zavtrak"> Фруктовый мусс </div>
+    <div class="filterDiv zavtrak"> Творог с черничным соусом и гранолой </div>
+    <div class="filterDiv chicken"> Куриная грудка с томатами и цуккини </div>
+    <div class="filterDiv chicken"> Чахохбили из курицы </div>
+    <div class="filterDiv chicken"> Равиоли с куриной грудкой в сливочном соусе </div>
+    <div class="filterDiv chicken"> Куриные ножки в хрустящей панировке </div>
+    <div class="filterDiv chicken"> Котлета куриная </div>
+    <div class="filterDiv chicken"> Филе цыпленка с сыром </div>
+    <div class="filterDiv chicken"> Отбивная из грудки цыпленка в льезоне </div>
+    <div class="filterDiv chicken"> Куриное филе с яичной лапшой </div>
+    <div class="filterDiv chicken"> Цыплята табака </div>
+    <div class="filterDiv chicken"> Куриное филе в сырной корочке </div>
+    <div class="filterDiv chicken"> Жаркое из куриной грудки с шампиньонами </div>
+    <div class="filterDiv chicken"> Филе цыпленка с грибами </div>
+    <div class="filterDiv chicken"> Куриная грудка в горчичном маринаде </div>
+    <div class="filterDiv chicken"> Сердца куриные жаренные с овощами </div>
+    <div class="filterDiv chicken"> Крудите из куриной грудки </div>
+    <div class="filterDiv chicken"> Индейка по Ковбойски </div>
+    <div class="filterDiv chicken"> Крылышки куриные в медовой глазури </div>
+    <div class="filterDiv chicken"> Террин куриный </div>
+    <div class="filterDiv chicken"> Куриная грудка с овощами в соусе Терияки </div>
+    <div class="filterDiv chicken"> Курица карри с рисом </div>
+    <div class="filterDiv chicken"> Курица тушеная с овощами и прованскими травами </div>
+    <div class="filterDiv chicken"> Филе индейки на гриле с овощами и фруктовым соусом </div>
+    <div class="filterDiv chicken"> Куриное филе гриль с овощами </div>
+    <div class="filterDiv chicken"> Жареная куриная грудка со спаржей и фисташками </div>
+    <div class="filterDiv chicken"> Куриная грудка гриль с гречей </div>
+    <div class="filterDiv chicken"> Люля-кебаб из говядины и куриной грудки с кус-кусом </div>
+    <div class="filterDiv chicken"> Котлета по Киевски </div>
+    <div class="filterDiv chicken"> Грибной жульен с куриной грудкой </div>
+    <div class="filterDiv chicken"> Куриное филе в пармезановой корочке </div>
+    <div class="filterDiv chicken"> Индейка в сливочном соусе с булгуром и грибами </div>
+    <div class="filterDiv chicken"> Куриная грудка на гриле по-Мексикански </div>
+    <div class="filterDiv chicken"> Люля-кебаб из куриной грудки с зеленью и шампиньонами гриль </div>
+    <div class="filterDiv chicken"> Куриные крылышки в хрустящей панировке </div>
+    <div class="filterDiv chicken"> Французский цыпленок фаршированный каштанами </div>
+    <div class="filterDiv chicken"> Куриная грудка с японским омлетом </div>
+    <div class="filterDiv chicken"> Куры запеченные без кости, с сыром и орехами </div>
+    <div class="filterDiv chicken"> Куриный рулет по Американски </div>
+    <div class="filterDiv chicken"> Паштет из куриной печени с зеленым перцем </div>
+    <div class="filterDiv chicken"> Утиные ножки Конфи с апельсиновым чатни </div>
+    <div class="filterDiv chicken"> Перепела обжаренные с тимьяном с баваруа из артишока </div>
+    <div class="filterDiv chicken"> Перепела гриль с печеным картофелем </div>
+    <div class="filterDiv chicken"> Куриная грудка с фисташками и курагой </div>
+    <div class="filterDiv chicken"> Утка с яблоками </div>
+    <div class="filterDiv chicken"> Фазан запеченный с фруктами </div>
+    <div class="filterDiv chicken"> Грибы запеченные с куриной грудкой </div>
+    <div class="filterDiv chicken"> Цыпленок Прованс </div>
+    <div class="filterDiv chicken"> Цыпленок с апельсином и кус-кусом </div>
+    <div class="filterDiv chicken"> Форшмак из куриной печени </div>
+    <div class="filterDiv chicken"> Утка в медовой карамели с рисом и яблоками </div>
+    <div class="filterDiv chicken"> Утиная грудка с вишневым соусом </div>
+    <div class="filterDiv chicken"> Утиная грудка в цитрусовом соусе </div>
+    <div class="filterDiv chicken"> Филе цыпленка с картофелем гриль </div>
+    <div class="filterDiv chicken"> Люля - кебаб куриный с креветками </div>
+    <div class="filterDiv chicken"> Фрикасе из куриной грудки с грибами </div>
+    <div class="filterDiv chicken"> Цыпленок Пеппе верде </div>
+    <div class="filterDiv chicken"> Утиная ножка с пюре </div>
+    <div class="filterDiv chicken"> Люля-кебаб из курицы </div>
+    <div class="filterDiv chicken"> Индейка гриль </div>
+    <div class="filterDiv chicken"> Куриная грудка гриль с киноа </div>
+    <div class="filterDiv chicken"> Шашлычки из куриной грудки </div>
+    <div class="filterDiv chicken"> Куриное филе в беконе </div>
+    <div class="filterDiv chicken"> Утиная грудка с грушей в апельсиновом соусе </div>
+    <div class="filterDiv chicken"> Фуа-гра </div>
+    <div class="filterDiv chicken"> Греча с копченой курой </div>
+    <div class="filterDiv chicken"> Шашлычок Куриный с картофелем по деревенски </div>
+    <div class="filterDiv chicken"> Блинчик яичный с курицей и грибами в сливочном соусе </div>
+    <div class="filterDiv chicken"> Фрикасе из куринного филе с овощами </div>
+    <div class="filterDiv chicken"> Котлета рубленная из индейки с брокколи </div>
+    <div class="filterDiv chicken"> Куриная отбивная под сливочно-грибным соусом и сыром моцарелла </div>
+    <div class="filterDiv chicken"> Сердечки куриные в сливочном соусе </div>
+    <div class="filterDiv chicken"> Жульен из птицы </div>
+    <div class="filterDiv chicken"> Куриное филе под сырной корочкой </div>
+    <div class="filterDiv chicken"> Квисо куриное </div>
+    <div class="filterDiv chicken"> Жаркое из курицы с картофелем и грибами </div>
+    <div class="filterDiv chicken"> Стейк куриный с картофелем фри и соусом </div>
+    <div class="filterDiv chicken"> Лапша удон с курицей и овощами </div>
+    <div class="filterDiv chicken"> Курочка сливочная с макаронами </div>
+    <div class="filterDiv chicken"> Шашлык из курицы </div>
+    <div class="filterDiv chicken"> Куриные палочки с чесночным соусом </div>
+    <div class="filterDiv chicken"> Куриное филе в шубке </div>
+    <div class="filterDiv chicken"> Шашлык из куриного бедра ( мангал ) </div>
+    <div class="filterDiv chicken"> Шницель куриный "Хрустящая корочка" </div>
+    <div class="filterDiv chicken"> Котлетки из индейки с клюквенным чатни </div>
+    <div class="filterDiv chicken"> Вок с овощами курицей и лапшой удон </div>
+    <div class="filterDiv chicken"> Шашлычок из куриной грудки с баклажаном </div>
+    <div class="filterDiv chicken"> Рулет из индейки с лисичками и шпинатом </div>
+    <div class="filterDiv chicken"> Утиная грудка с капучино из спаржи и сельдерея </div>
+    <div class="filterDiv chicken"> Чахохбили из курицы с гречей </div>
+    <div class="filterDiv chicken"> Куриная грудка с овощами на пару </div>
+    <div class="filterDiv chicken"> Пулярик (ножка фаршированная) </div>
+    <div class="filterDiv chicken"> Нежное филе Индейки в маринаде из васаби </div>
+    <div class="filterDiv chicken"> Куриное филе в кляре из брокколи и рагу по сицилийски </div>
+    <div class="filterDiv chicken"> Стейк из курицы в имбирном маринаде со стручковой фасолью </div>
+    <div class="filterDiv chicken"> Куриная котлета в сливочно-грибном соусе и гречка с паприкой </div>
+    <div class="filterDiv chicken"> Вок с копченной курицей </div>
+    <div class="filterDiv chicken"> Кацудон из курицы с соусом терияки </div>
+    <div class="filterDiv chicken"> Куриное филе под тайским соусом с овощами </div>
+    <div class="filterDiv chicken"> Котлеты по сербски с брынзой с картофельным пюре </div>
+    <div class="filterDiv chicken"> Курица в сырном соусе и овощи по мексикански </div>
+    <div class="filterDiv chicken"> Куриное филе в сливочном карри и запеченные овощи </div>
+    <div class="filterDiv chicken"> Бифштекс из страуса </div>
+    <div class="filterDiv chicken"> Утка с тамариндовым соусом </div>
+    <div class="filterDiv chicken"> Котлета куриная с гарниром из пюре картофеля,спаржи и зеленого горошка </div>
+    <div class="filterDiv chicken"> Кокот из цыпленка </div>
+    <div class="filterDiv chicken"> Куриная грудка </div>
+    <div class="filterDiv chicken"> Микс Сианласу с курицей </div>
+    <div class="filterDiv chicken"> Шницель куриный с картофелем по деревенски с соусом на выбор </div>
+    <div class="filterDiv chicken"> Куриная грудка на гриле с кускусом </div>
+    <div class="filterDiv chicken"> Куриные крылья BBQ </div>
+    <div class="filterDiv chicken"> Жульен с курой и грибами </div>
+    <div class="filterDiv chicken"> Печень куриная в сливочном соусе </div>
+    <div class="filterDiv chicken"> Филе индейки запеченное в сливочно сырном соусе с грибами </div>
+    <div class="filterDiv chicken"> Биточки куриные с картофельным пюре и сливочно-горчичным соусом </div>
+    <div class="filterDiv chicken"> Индейка су вид с гарниром из бурого риса </div>
+    <div class="filterDiv chicken"> Куриная грудка на гриле с брокколи </div>
+    <div class="filterDiv chicken"> Куриное филе с сельдереем и морковью </div>
+    <div class="filterDiv chicken"> Рулет куриный с сыром и укропом </div>
+    <div class="filterDiv chicken"> Филе фермерского цыпленка с травами </div>
+    <div class="filterDiv beef"> Котлеты домашние мясные </div>
+    <div class="filterDiv beef"> Котлетки печеночные (сальники) </div>
+    <div class="filterDiv beef"> Отбивная с грибами и сыром </div>
+    <div class="filterDiv beef"> Телятина на сковородке </div>
+    <div class="filterDiv beef"> Голубцы мясные </div>
+    <div class="filterDiv beef"> Жаркое по домашнему </div>
+    <div class="filterDiv beef"> Бифстроганов в сливочном соусе </div>
+    <div class="filterDiv beef"> Плов Узбекский праздничный </div>
+    <div class="filterDiv beef"> Печень по - строгановски </div>
+    <div class="filterDiv beef"> Тефтели в томатном соусе </div>
+    <div class="filterDiv beef"> Поджарка из говядины </div>
+    <div class="filterDiv beef"> Бифштекс рубленный </div>
+    <div class="filterDiv beef"> Говядина в сливочном соусе с запеченным картофелем </div>
+    <div class="filterDiv beef"> Котолетта Миланезе с ветчиной </div>
+    <div class="filterDiv beef"> Азу из говядины </div>
+    <div class="filterDiv beef"> Биточки с сыром </div>
+    <div class="filterDiv beef"> Жаркое из говядины запеченное под слоеным тестом </div>
+    <div class="filterDiv beef"> Лапша удон со говядиной и овощами </div>
+    <div class="filterDiv beef"> Люля - кебаб из баранины </div>
+    <div class="filterDiv beef"> Венский шницель из говяжьей вырезки </div>
+    <div class="filterDiv beef"> Говядина тушеная с черносливом под ореховым соусом </div>
+    <div class="filterDiv beef"> Гуляш Венгерский </div>
+    <div class="filterDiv beef"> Жаркое из баранины </div>
+    <div class="filterDiv beef"> Чанахи в горшочках </div>
+    <div class="filterDiv beef"> Люля-кебаб из говядины </div>
+    <div class="filterDiv beef"> Стейк из говяжей вырезки </div>
+    <div class="filterDiv beef"> Говядина Терияки </div>
+    <div class="filterDiv beef"> Паровая телятина с салатным миксом </div>
+    <div class="filterDiv beef"> Говядина с овощами, запеченная в баклажане </div>
+    <div class="filterDiv beef"> Баранина томленная в печи с травами </div>
+    <div class="filterDiv beef"> Баранина с розмарином, цуккини и мятой </div>
+    <div class="filterDiv beef"> Тартар из говядины </div>
+    <div class="filterDiv beef"> Говядина Шатобриан с овощами гриль </div>
+    <div class="filterDiv beef"> Говядина по-Тайски с рисом </div>
+    <div class="filterDiv beef"> Говядина с грибами в соусе Неаполитана </div>
+    <div class="filterDiv beef"> Фрикадельки из говядины в соусе из свежих томатов </div>
+    <div class="filterDiv beef"> Печень говяжья с жареным луком и грибами </div>
+    <div class="filterDiv beef"> Говядина тушеная с черносливом, с цельнозерновой лапшей </div>
+    <div class="filterDiv beef"> Плов из говядины с бурым рисом </div>
+    <div class="filterDiv beef"> Бифштекс натуральный рубленный из говядины с яйцом </div>
+    <div class="filterDiv beef"> Стейк из мраморной говядины </div>
+    <div class="filterDiv beef"> Стейк из говядины </div>
+    <div class="filterDiv beef"> Каре ягненка с овощами гриль </div>
+    <div class="filterDiv beef"> Котлеты Пожарские </div>
+    <div class="filterDiv beef"> Лагман из говядины </div>
+    <div class="filterDiv beef"> Жаркое мясное в сливочном соусе </div>
+    <div class="filterDiv beef"> Филе говядины с грибным соусом </div>
+    <div class="filterDiv beef"> Стейк из говядины с запеченным картофелем </div>
+    <div class="filterDiv beef"> Говядина с овощами, запеченная в хлебе </div>
+    <div class="filterDiv beef"> Мясо По-Французски </div>
+    <div class="filterDiv beef"> Филе говядины со шпинатом </div>
+    <div class="filterDiv beef"> Поджарка из говядины с рисом </div>
+    <div class="filterDiv beef"> Каре барашка в пармезановой корочке </div>
+    <div class="filterDiv beef"> Бифстроганов с картофельным пюре </div>
+    <div class="filterDiv beef"> Стейк из говядины с овощами гриль </div>
+    <div class="filterDiv beef"> Каре ягненка с козьим сыром </div>
+    <div class="filterDiv beef"> Фритто мисто </div>
+    <div class="filterDiv beef"> Медальоны из говядины с грибами </div>
+    <div class="filterDiv beef"> Тальятта из говядины </div>
+    <div class="filterDiv beef"> Медальоны из говядины с картофельными слайсами </div>
+    <div class="filterDiv beef"> Говядина запеченная с грибным жульеном в слоеном тесте </div>
+    <div class="filterDiv beef"> Ассорти мясное гриль </div>
+    <div class="filterDiv beef"> Каре барашка с сыром </div>
+    <div class="filterDiv beef"> Жаркое из говядины </div>
+    <div class="filterDiv beef"> Говядина под соусом из вешенок </div>
+    <div class="filterDiv beef"> Бифстроганов с картофельной соломкой </div>
+    <div class="filterDiv beef"> Бифстроганов с лесными грибами и картофельным пюре </div>
+    <div class="filterDiv beef"> Особуко с соусом из белых грибов </div>
+    <div class="filterDiv beef"> Ножка теленка запеченная с фисташками </div>
+    <div class="filterDiv beef"> Рулет из телятины с овощами и специями </div>
+    <div class="filterDiv beef"> Бараний окорок "Вулкан" </div>
+    <div class="filterDiv beef"> Рулька баранья </div>
+    <div class="filterDiv beef"> Каннелоне из ветчины </div>
+    <div class="filterDiv beef"> Каннелоне из сыра </div>
+    <div class="filterDiv beef"> Плато мясных деликатесов </div>
+    <div class="filterDiv beef"> Ассорти роллов в омлете </div>
+    <div class="filterDiv beef"> Ножка барашка с овощами гриль </div>
+    <div class="filterDiv beef"> Тарталетки с телятиной в мексиканском стиле </div>
+    <div class="filterDiv beef"> Валованы с мясом и грибами </div>
+    <div class="filterDiv beef"> Говядина запеченная с овощным жульеном в слоеном тесте </div>
+    <div class="filterDiv beef"> Ассорти колбасок </div>
+    <div class="filterDiv beef"> Вителло Тоннато (Телятина с соусом из тунца) </div>
+    <div class="filterDiv beef"> Корейка молочного теленка в пармезановой корочке с трюфелями </div>
+    <div class="filterDiv beef"> Каре молодого барашка со шпинатом </div>
+    <div class="filterDiv beef"> Телячья вырезка в ореховом панцире </div>
+    <div class="filterDiv beef"> Котолетта Вальдостана </div>
+    <div class="filterDiv beef"> Буратта с вялеными томатами и базиликом </div>
+    <div class="filterDiv beef"> Запеченные мозговые косточки с брускеттой </div>
+    <div class="filterDiv beef"> Язык запеченный под соусом Песто и пармезаном </div>
+    <div class="filterDiv beef"> Кролик в сливочном соусе </div>
+    <div class="filterDiv beef"> Мексиканский мясной пирог </div>
+    <div class="filterDiv beef"> Пирог из буженины с грибами </div>
+    <div class="filterDiv beef"> Мини-чебуреки </div>
+    <div class="filterDiv beef"> Хрустящий куриный рулет с пюре-оливье </div>
+    <div class="filterDiv beef"> Крем-жульен из языка </div>
+    <div class="filterDiv beef"> Пеппер стейк из говяжьей вырезки с каштановым пюре </div>
+    <div class="filterDiv beef"> Печень говяжья </div>
+    <div class="filterDiv beef"> Каре молодого барашка </div>
+    <div class="filterDiv beef"> Медальоны из говядины в жировой сетке </div>
+    <div class="filterDiv beef"> Т-bone Стейк </div>
+    <div class="filterDiv beef"> Телятина на кости с картофелем и фирменным соусом </div>
+    <div class="filterDiv beef"> Каша гречневая с куриной грудкой и сливочным соусом </div>
+    <div class="filterDiv beef"> Каша пшеничная с говяжьим ростбифом </div>
+    <div class="filterDiv beef"> Котлета Де Воляй </div>
+    <div class="filterDiv beef"> Рагу из телятины с фасолью в медовом соусе </div>
+    <div class="filterDiv beef"> Плов узбекский праздничный </div>
+    <div class="filterDiv beef"> Язык телячий на гриле </div>
+    <div class="filterDiv beef"> Филе миньен с чипсами из картофеля </div>
+    <div class="filterDiv beef"> Котлета из говядины в сметанном соусе и рис ассорти </div>
+    <div class="filterDiv beef"> Яйцо Бенедикт с ветчиной и шпинатом </div>
+    <div class="filterDiv beef"> Бенедикт на тыквенной вафле </div>
+    <div class="filterDiv beef"> Бенедикт на шпинатной вафле </div>
+    <div class="filterDiv beef"> Яйцо Бенедикт с лососем и авокадо </div>
+    <div class="filterDiv beef"> Бенедикт на картофельной вафле </div>
+    <div class="filterDiv beef"> Тар тар из вырезки </div>
+    <div class="filterDiv beef"> Ассорти мясное </div>
+    <div class="filterDiv beef"> Брускета с ростбифом,рукколой и сальсой из авокадо </div>
+    <div class="filterDiv beef"> Ягненок с капустным кус кусом,грушевым чатни и орехами </div>
+    <div class="filterDiv beef"> Вырезка лося с пюре из корня сельдерея </div>
+    <div class="filterDiv beef"> Телячий язык на гриле с картофельным пюре </div>
+    <div class="filterDiv beef"> Бифштекс из оленины с брусничным соусом </div>
+    <div class="filterDiv beef"> Котлеты из косули с брусничным соусом </div>
+    <div class="filterDiv beef"> Бараний окорок запеченный </div>
+    <div class="filterDiv beef"> Медальоны из говядины с соусом из грибов </div>
+    <div class="filterDiv beef"> Говядина по тайски </div>
+    <div class="filterDiv beef"> Пхали грузинские </div>
+    <div class="filterDiv beef"> Оссобуко сувид </div>
+    <div class="filterDiv beef"> Говядина томленная с нутом </div>
+    <div class="filterDiv beef"> Чашушули </div>
+    <div class="filterDiv beef"> Долма с мацони </div>
+    <div class="filterDiv beef"> Телятина с грибами и моцарелой </div>
+    <div class="filterDiv beef"> Стейк стриплойн </div>
+    <div class="filterDiv beef"> Оссобуко молодого бычка </div>
+    <div class="filterDiv beef"> Оджахури </div>
+    <div class="filterDiv beef"> Садж для двоих </div>
+    <div class="filterDiv beef"> Люля кебаб из барашка </div>
+    <div class="filterDiv beef"> Шашлык из вырезки с аджикой и кориандром </div>
+    <div class="filterDiv beef"> Микс с говядиной </div>
+    <div class="filterDiv beef"> Оладьи из говяжьей печени </div>
+    <div class="filterDiv beef"> Телятина запеченная с грибами </div>
+    <div class="filterDiv beef"> Телятина отбивная в сухарях(Ромштекс) </div>
+    <div class="filterDiv beef"> Говяжья корейка на кости </div>
+    <div class="filterDiv beef"> Лапша соба с говядиной в соусе терьяки </div>
+    <div class="filterDiv beef"> Телятина отбивная с обжаренным картофелем и соусом деми глас </div>
+    <div class="filterDiv beef"> Говядина с томатами,сливочно-грибным соусом под сыром моцарелла </div>
+    <div class="filterDiv beef"> Говядина тушеная с луком в соевом соусе </div>
+    <div class="filterDiv beef"> Бифстроганов с картофелем мини </div>
+    <div class="filterDiv beef"> Бифстроганов и булгур с овощами </div>
+    <div class="filterDiv beef"> Сэт "Фритюр" </div>
+    <div class="filterDiv beef"> Бейгл с ростбифом </div>
+    <div class="filterDiv beef"> Гренки ржаные чесночные </div>
+    <div class="filterDiv beef"> Мясное рагу ( болоньезе ) </div>
+    <div class="filterDiv beef"> Кокот из шампиньонов </div>
+    <div class="filterDiv beef"> Жульен Классический </div>
+    <div class="filterDiv beef"> Стейк из куриного филе ( мангал ) </div>
+    <div class="filterDiv beef"> Шашлык из телятины ( мангал ) </div>
+    <div class="filterDiv beef"> Жаркое из говядины с фасолью и грибами </div>
+    <div class="filterDiv beef"> Сердечки куриные с овощами в соусе терьяки(японская кухня) </div>
+    <div class="filterDiv beef"> Запеканка мясная New York </div>
+    <div class="filterDiv beef"> Телятина с апельсинами и сладким перцем </div>
+    <div class="filterDiv beef"> Филе миньен из говядины </div>
+    <div class="filterDiv beef"> Баранина с Айвой </div>
+    <div class="filterDiv beef"> Мчади по грузински с сыром сулугуни </div>
+    <div class="filterDiv beef"> Говядина рубленная в овощном соусе с ризо </div>
+    <div class="filterDiv beef"> Чили кон карне </div>
+    <div class="filterDiv beef"> Говядина с пряным тыквенным соусом и рисом </div>
+    <div class="filterDiv beef"> Фрикадельки с брусничным соусом и картофелем </div>
+    <div class="filterDiv beef"> Говядина по корейски с рисом </div>
+    <div class="filterDiv beef"> Бифстроганов из говядины с гречкой </div>
+    <div class="filterDiv beef"> Телятина в кисло сладком соусе </div>
+    <div class="filterDiv beef"> Филе говядины с картофелем по голандски </div>
+    <div class="filterDiv beef"> Воздушный мусс с медом и имбирем </div>
+    <div class="filterDiv beef"> Колбаски Мюнхенские </div>
+    <div class="filterDiv beef"> Колбаска Улитка </div>
+    <div class="filterDiv beef"> Колбаски Вайсвурст </div>
+    <div class="filterDiv beef"> Колбаски из баранины с пряными травами </div>
+    <div class="filterDiv beef"> Колбаски из телятины с перцем халапеньо и чеддером </div>
+    <div class="filterDiv beef"> Колбаски из трески с крабовым мясом </div>
+    <div class="filterDiv beef"> Колбаски домашние с перцем </div>
+    <div class="filterDiv beef"> Колбаски домашние (по - казачьи) </div>
+    <div class="filterDiv beef"> Колбаски куриные </div>
+    <div class="filterDiv beef"> Колбаски бараньи </div>
+    <div class="filterDiv beef"> Колбаски куриные по-тайски </div>
+    <div class="filterDiv beef"> Люля кебаб с картофелем </div>
+    <div class="filterDiv beef"> Вареники с вишней </div>
+    <div class="filterDiv beef"> Вареники с картофелем </div>
+    <div class="filterDiv beef"> Пельмени Гёдза с телятиной </div>
+    <div class="filterDiv beef"> Домашние пельмени </div>
+    <div class="filterDiv beef"> Пельмени с говядиной </div>
+    <div class="filterDiv beef"> Хинкали с фирменным соусом </div>
+    <div class="filterDiv beef"> Пельмени с бульоном </div>
+    <div class="filterDiv beef"> Равиоли с рикоттой и шпинатом </div>
+    <div class="filterDiv beef"> Равиоли с картофелем </div>
+    <div class="filterDiv beef"> Вареники с малиной </div>
+    <div class="filterDiv beef"> Манты </div>
+    <div class="filterDiv beef"> Пельмени из гречневой и черемуховой муки п/ф </div>
+    <div class="filterDiv beef"> Вареники с творогом </div>
+    <div class="filterDiv beef"> Пельмени свекольные с форелью тыквой и облепихой </div>
+    <div class="filterDiv fish"> Рыба (Морской язык или судак, или горбуша) жаренная с луком </div>
+    <div class="filterDiv fish"> Икрянники (оладьи из рыбной икры) </div>
+    <div class="filterDiv fish"> Паэлья с жареными кальмарами </div>
+    <div class="filterDiv fish"> Котлеты рыбные </div>
+    <div class="filterDiv fish"> Филе горбуши под сырной шапкой </div>
+    <div class="filterDiv fish"> Морской язык в кляре </div>
+    <div class="filterDiv fish"> Сазан - кебаб </div>
+    <div class="filterDiv fish"> Темпура из кальмара с овощами </div>
+    <div class="filterDiv fish"> Темпура из судака с овощами на шпажке </div>
+    <div class="filterDiv fish"> Рыба запеченная с картофелем по - Русски </div>
+    <div class="filterDiv fish"> Тефтели рыбные </div>
+    <div class="filterDiv fish"> Судак в кляре </div>
+    <div class="filterDiv fish"> Котлетки из трески </div>
+    <div class="filterDiv fish"> Стрипсы из судака </div>
+    <div class="filterDiv fish"> Стейк из лосося с овощами гриль </div>
+    <div class="filterDiv fish"> Стейк из лосося с овощами WOK </div>
+    <div class="filterDiv fish"> Ролл из судака с припущенной морковью в апельсиновом соусе </div>
+    <div class="filterDiv fish"> Спринг-ролл с креветками </div>
+    <div class="filterDiv fish"> Рулет из судака </div>
+    <div class="filterDiv fish"> Судак- кебаб </div>
+    <div class="filterDiv fish"> Дорадо запеченная под панцирем из соли </div>
+    <div class="filterDiv fish"> Тигровые креветки гриль </div>
+    <div class="filterDiv fish"> Черные мидии по Провански </div>
+    <div class="filterDiv fish"> Сибасс на гриле </div>
+    <div class="filterDiv fish"> Каракатица с овощами </div>
+    <div class="filterDiv fish"> Каракатица с рисом и вялеными томатами </div>
+    <div class="filterDiv fish"> Филе трески в медовом соусе </div>
+    <div class="filterDiv fish"> Судак филе, запеченный в пергаменте </div>
+    <div class="filterDiv fish"> Кольца кальмара в кляре </div>
+    <div class="filterDiv fish"> Дорадо, запеченная в соли </div>
+    <div class="filterDiv fish"> Филе лосося с икорным соусом </div>
+    <div class="filterDiv fish"> Креветки в сливочном соусе </div>
+    <div class="filterDiv fish"> Стейк из лосося с икорным соусом </div>
+    <div class="filterDiv fish"> Темпура из судака </div>
+    <div class="filterDiv fish"> Тигровые креветки, обжаренные на гриле </div>
+    <div class="filterDiv fish"> Зеленые мидии, запеченные под пикантным соусом </div>
+    <div class="filterDiv fish"> Стейк тунца </div>
+    <div class="filterDiv fish"> Морепродукты на гриле </div>
+    <div class="filterDiv fish"> Креветки отваренные в пиве </div>
+    <div class="filterDiv fish"> Шашлычки из морепродуктов в беконе </div>
+    <div class="filterDiv fish"> Креветки в хрустящей панировке </div>
+    <div class="filterDiv fish"> Мидии в сливочном соусе </div>
+    <div class="filterDiv fish"> Рыба фаршированная капустой (Карп, Сазан) </div>
+    <div class="filterDiv fish"> Карп Черная Хризантема </div>
+    <div class="filterDiv fish"> Кальмар фаршированный Террином из лосося </div>
+    <div class="filterDiv fish"> Судак запеченный целиком (фаршированный) </div>
+    <div class="filterDiv fish"> Баклажан, запеченный с креветками и сыром </div>
+    <div class="filterDiv fish"> Рулет из лосося в картофеле "Респи" </div>
+    <div class="filterDiv fish"> Гравлакс из лосося </div>
+    <div class="filterDiv fish"> Устрицы запеченные </div>
+    <div class="filterDiv fish"> Осетр запеченный целиком </div>
+    <div class="filterDiv fish"> Камбала с овощным жульеном </div>
+    <div class="filterDiv fish"> Скоблянка из судака </div>
+    <div class="filterDiv fish"> Запеченная форель с цуккини </div>
+    <div class="filterDiv fish"> Тост с копченым лососем и Филадельфией </div>
+    <div class="filterDiv fish"> Жареный омар с ароматными травами </div>
+    <div class="filterDiv fish"> Судак с огуречным конфитом </div>
+    <div class="filterDiv fish"> Осьминог щупальца гриль </div>
+    <div class="filterDiv fish"> Гребешки под соусом из трав с жемчужной икрой </div>
+    <div class="filterDiv fish"> Равиоли с креветками </div>
+    <div class="filterDiv fish"> Ризотто с морепродуктами </div>
+    <div class="filterDiv fish"> Барабуля приготовленная на гриле </div>
+    <div class="filterDiv fish"> Семга с шафраном и кедровыми орешками </div>
+    <div class="filterDiv fish"> Кальмары в кокосовом соусе с жасминовым рисом </div>
+    <div class="filterDiv fish"> Кальмары под соусом из трав с кус-кусом </div>
+    <div class="filterDiv fish"> Рыбная сковорода </div>
+    <div class="filterDiv fish"> Фаршированные кальмары со сливочным ризотто </div>
+    <div class="filterDiv fish"> Крем-жульен из морепродуктов с хрустящей чиабаттой </div>
+    <div class="filterDiv fish"> Судак с киноа </div>
+    <div class="filterDiv fish"> Судак фаршированный жареным угрем </div>
+    <div class="filterDiv fish"> Лосось фаршированный песто </div>
+    <div class="filterDiv fish"> Лосось в беконе </div>
+    <div class="filterDiv fish"> Дорадо приготовленная на гриле </div>
+    <div class="filterDiv fish"> Стейк из лосося гриль </div>
+    <div class="filterDiv fish"> Поке с крабом и эдамаме </div>
+    <div class="filterDiv fish"> Поке с лососем </div>
+    <div class="filterDiv fish"> Решти с лососем </div>
+    <div class="filterDiv fish"> Сибас с соусом из фейхоа </div>
+    <div class="filterDiv fish"> Севиче из лосося с лаймом и соусом ахи амарилло </div>
+    <div class="filterDiv fish"> Сельдь с картофелем </div>
+    <div class="filterDiv fish"> Лосось на углях с фенхелем </div>
+    <div class="filterDiv fish"> Дорадо на углях </div>
+    <div class="filterDiv fish"> Осетрина на углях </div>
+    <div class="filterDiv fish"> Скумбрия на углях </div>
+    <div class="filterDiv fish"> Микс с рыбкой </div>
+    <div class="filterDiv fish"> Стейк из Лосося с соусом тар-тар </div>
+    <div class="filterDiv fish"> Судак по Польски c картофелем шато </div>
+    <div class="filterDiv fish"> Судак в водорослях из лука порея,желе из семян фенхеля и пена со вкусом моря </div>
+    <div class="filterDiv fish"> Пангасиус в кляре </div>
+    <div class="filterDiv fish"> Филе судака с грибами </div>
+    <div class="filterDiv fish"> Судак пряженный грибами </div>
+    <div class="filterDiv fish"> Филе трески запеченное с крабовыми палочками </div>
+    <div class="filterDiv fish"> Шашлычок из семги с цукини </div>
+    <div class="filterDiv fish"> Наполеон из оливье с креветками </div>
+    <div class="filterDiv fish"> Крем-жюльен из судака </div>
+    <div class="filterDiv fish"> Судак жареный по-домашнему </div>
+    <div class="filterDiv fish"> Лосось гриль </div>
+    <div class="filterDiv fish"> Филе судака в картофельном панцире </div>
+    <div class="filterDiv fish"> Помидор фаршированный креветками </div>
+    <div class="filterDiv fish"> Жареные королевские креветки по-Испански </div>
+    <div class="filterDiv fish"> Шашлычки Ассорти из рыбы в беконе </div>
+    <div class="filterDiv fish"> Запеченная форель с овощами </div>
+    <div class="filterDiv fish"> Шашлычки из лосося</div>
+    <div class="filterDiv fish"> Ризотто с креветками и соусом песто </div>
+    <div class="filterDiv fish"> Композиция из филе дорадо и барабульки </div>
+    <div class="filterDiv fish"> Креветка - темпура </div>
+    <div class="filterDiv fish"> Мидии запеченные под соусом Филадельфия </div>
+    <div class="filterDiv fish"> Филе лосося под сливочным соусом </div>
+    <div class="filterDiv fish"> Кефаль по-Керченски </div>
+    <div class="filterDiv fish"> Мидии запеченные под сырным соусом </div>
+    <div class="filterDiv fish"> Ризотто с лососем </div>
+    <div class="filterDiv fish"> Котлетки из судака </div>
+    <div class="filterDiv fish"> Филе трески с картофельным кремом </div>
+    <div class="filterDiv fish"> Вок "Рис с лососем" </div>
+    <div class="filterDiv fish"> Судак(филе) в сливочном соусе под сырной корочкой </div>
+    <div class="filterDiv fish"> Жареный судак с салатом из опят </div>
+    <div class="filterDiv fish"> Мидии в раковине под зеленым маслом </div>
+    <div class="filterDiv fish"> Севиче из лосося </div>
+    <div class="filterDiv fish"> Стейк Палтуса </div>
+    <div class="filterDiv fish"> Ризотто с кремом из спаржи и креветкой </div>
+    <div class="filterDiv fish"> Горбуша по царски </div>
+    <div class="filterDiv fish"> Котлеты из двух видов рыб с картофельным пюре </div>
+    <div class="filterDiv pizza"> Пицца Маргарита </div>
+    <div class="filterDiv pizza"> Пицца Маринара </div>
+    <div class="filterDiv pizza"> Пицца Кватро Стаджиони </div>
+    <div class="filterDiv pizza"> Пенне Кватро Формаджи (Четыре сыра) </div>
+    <div class="filterDiv pizza"> Пицца Кальцоне </div>
+    <div class="filterDiv pizza"> Пицца Кватро Формаджи </div>
+    <div class="filterDiv pizza"> Пицца Ди сальмоне </div>
+    <div class="filterDiv pizza"> Пицца Цезарь с лососем </div>
+    <div class="filterDiv pizza"> Пицца Веджетарьяно </div>
+    <div class="filterDiv pizza"> Пицца Диабло </div>
+    <div class="filterDiv pizza"> Пицца Карбонара </div>
+    <div class="filterDiv pizza"> Пицца Баварская </div>
+    <div class="filterDiv pizza"> Пицца Пейше Чинезе </div>
+    <div class="filterDiv pizza"> Пицца Американо </div>
+    <div class="filterDiv pizza"> Пицца Дольче Вита </div>
+    <div class="filterDiv pizza"> Пицца Русская с картофелем </div>
+    <div class="filterDiv pizza"> Пицца Карне Мисто </div>
+    <div class="filterDiv pizza"> Пицца Тартюфо </div>
+    <div class="filterDiv pizza"> Пицца со свежим шпинатом </div>
+    <div class="filterDiv pizza"> Пицца с маслинами и сливочно-шпинатным соусом </div>
+    <div class="filterDiv pizza"> Пицца с тунцом </div>
+    <div class="filterDiv pizza"> Пицца Цезарь </div>
+    <div class="filterDiv pizza"> Лепешка Фоккачина с сыром </div>
+    <div class="filterDiv pizza"> Лепешка Фоккачина с луком </div>
+    <div class="filterDiv pizza"> Тальятелле с копченностями и ореховым соусом </div>
+    <div class="filterDiv pizza"> Тальятелле Фунги Порччини (С белыми грибами) </div>
+    <div class="filterDiv pizza"> Тальятелле Песто </div>
+    <div class="filterDiv pizza"> Фарфалле с фрикадельками </div>
+    <div class="filterDiv pizza"> Фузилли Креветки с Цуккини (Гамберетти Э Дзуккини) </div>
+    <div class="filterDiv pizza"> Фузилли Карбонара Ночолла </div>
+    <div class="filterDiv pizza"> Фузилли Ветчина в сливках (Прошутто Э Панна) </div>
+    <div class="filterDiv pizza"> Фузилли Пратто Верде </div>
+    <div class="filterDiv pizza"> Пенне с лососем </div>
+    <div class="filterDiv pizza"> Пенне Арабьятто </div>
+    <div class="filterDiv pizza"> Пенне с баклажанами и фетой </div>
+    <div class="filterDiv pizza"> Папарделле Паназия </div>
+    <div class="filterDiv pizza"> Папарделле с куриной грудкой и грибами </div>
+    <div class="filterDiv pizza"> Папарделле Цуккини э Прошутто </div>
+    <div class="filterDiv pizza"> Феттучине с креветками и базиликом </div>
+    <div class="filterDiv pizza"> Сливочная паста с креветками </div>
+    <div class="filterDiv pizza"> Спагетти с фрикадельками в томатном соусе </div>
+    <div class="filterDiv pizza"> Спагетти Маринара </div>
+    <div class="filterDiv pizza"> Спагетти Негро Ди Маре </div>
+    <div class="filterDiv pizza"> Спагетти Карбонара </div>
+    <div class="filterDiv pizza"> Спагетти Болоньезе </div>
+    <div class="filterDiv pizza"> Спагетти с лососем в сливочном соусе </div>
+    <div class="filterDiv pizza"> Спагетти с кальмарами </div>
+    <div class="filterDiv pizza"> Спагетти в головке сыра пармезан с трюфелем </div>
+    <div class="filterDiv pizza"> Паста Болоньезе с сыром </div>
+    <div class="filterDiv pizza"> Паста Алио Олио с базиликом </div>
+    <div class="filterDiv pizza"> Паста с телятиной и томатным соусом </div>
+    <div class="filterDiv pizza"> Лазанья мясная </div>
+    <div class="filterDiv pizza"> Лазанья Болоньезе </div>
+    <div class="filterDiv pizza"> Лазанья овощная </div>
+    <div class="filterDiv pizza"> Лазанья Прошутто Э Панна </div>
+    <div class="filterDiv pizza"> Лазанья Четыре Сыра </div>
+    <div class="filterDiv pizza"> Равиоли с телятиной и пармезаном в бульоне </div>
+    <div class="filterDiv garnir"> Зразы картофельные с грибами </div>
+    <div class="filterDiv garnir"> Зразы картофельные с мясом </div>
+    <div class="filterDiv garnir"> Зразы картофельные с яйцом и луком </div>
+    <div class="filterDiv garnir"> Котлета капустная </div>
+    <div class="filterDiv garnir"> Картофельные котлетки с луком </div>
+    <div class="filterDiv garnir"> Оладьи из кабачков </div>
+    <div class="filterDiv garnir"> Драник с яйцом пашот и щучьей икрой по-русски </div>
+    <div class="filterDiv garnir"> Наггетсы из моцареллы с ореховым соусом </div>
+    <div class="filterDiv garnir"> Картофельные крокеты </div>
+    <div class="filterDiv garnir"> Сырные зразы с брокколи </div>
+    <div class="filterDiv garnir"> Драники картофельные </div>
+    <div class="filterDiv garnir"> Драники из кабачка </div>
+    <div class="filterDiv garnir"> Чизболлы с ореховым соусом </div>
+    <div class="filterDiv garnir"> Дранники из цукини со сметаной и яйцом пашот </div>
+    <div class="filterDiv garnir"> Лобио с орехом </div>
+    <div class="filterDiv garnir"> Гречневая каша с грибами и луком </div>
+    <div class="filterDiv garnir"> Картофель Айдахо </div>
+    <div class="filterDiv garnir"> Ассорти из запеченных овощей </div>
+    <div class="filterDiv garnir"> Морковь Запеченная со сливочным маслом </div>
+    <div class="filterDiv garnir"> Овощи WOK </div>
+    <div class="filterDiv garnir"> Кус кус с грибным жульеном </div>
+    <div class="filterDiv garnir"> Картофель по Деревенски </div>
+    <div class="filterDiv garnir"> Овощное ризотто </div>
+    <div class="filterDiv garnir"> Молодая зеленая фасоль </div>
+    <div class="filterDiv garnir"> Капуста цветная в омлете </div>
+    <div class="filterDiv garnir"> Пюре картофельное с вассаби </div>
+    <div class="filterDiv garnir"> Пюре картофельное с белыми грибами </div>
+    <div class="filterDiv garnir"> Капуста цветная в сливках под сырным соусом </div>
+    <div class="filterDiv garnir"> Картофельные дранники </div>
+    <div class="filterDiv garnir"> Картофельный Гратен </div>
+    <div class="filterDiv garnir"> Рататуй </div>
+    <div class="filterDiv garnir"> Рагу с цветной капустой </div>
+    <div class="filterDiv garnir"> Помидоры с сыром и чесноком </div>
+    <div class="filterDiv garnir"> Картофель жаренный по-деревенски с чесноком </div>
+    <div class="filterDiv garnir"> Картофель отварной с маслом сливочным и зеленью </div>
+    <div class="filterDiv garnir"> Картофель жареный с луком </div>
+    <div class="filterDiv garnir"> Луковые кольца </div>
+    <div class="filterDiv garnir"> Грибной жульен (кокот) с ароматом трюфеля </div>
+    <div class="filterDiv garnir"> Морковь тушеная с рисом и черносливом </div>
+    <div class="filterDiv garnir"> Ассорти овощное </div>
+    <div class="filterDiv garnir"> Печенная репа с шампиньонами </div>
+    <div class="filterDiv garnir"> Зеленая фасоль с грибами и луком-шалот </div>
+    <div class="filterDiv garnir"> Запеченный стейк тыквы под тыквенным соусом на основе коксового молока,песто из
+      свежей зелени и с домашним сыром рикотта </div>
+    <div class="filterDiv garnir"> Овощные таглиателли с судаком и кремом из цукини. </div>
+    <div class="filterDiv garnir"> Каша кукурузная с тыквой </div>
+    <div class="filterDiv garnir"> Каша овсянная с пармезаном и чипсами из пастернака </div>
+    <div class="filterDiv garnir"> Мильфей из баклажан </div>
+    <div class="filterDiv garnir"> Фрукты на гриле </div>
+    <div class="filterDiv garnir"> Крудо из овощей с мисо-майо </div>
+    <div class="filterDiv garnir"> Котлеты из киноа </div>
+    <div class="filterDiv garnir"> Запеченная овсянка с фруктами и орехами </div>
+    <div class="filterDiv garnir"> Киноа с зеленой фасолью </div>
+    <div class="filterDiv garnir"> Гречотто с овощами </div>
+    <div class="filterDiv garnir"> Булгур с грибами и яйцом </div>
+    <div class="filterDiv garnir"> Каша из киноа </div>
+    <div class="filterDiv garnir"> Картофель мини с грибами по домашнему </div>
+    <div class="filterDiv garnir"> Греча с лесными грибами </div>
+    <div class="filterDiv garnir"> Микс с баклажанами </div>
+    <div class="filterDiv garnir"> Ризотто с белыми грибами </div>
+    <div class="filterDiv garnir"> Жареный камамбер с клубничным соусом </div>
+    <div class="filterDiv garnir"> Лапша соба с овощами </div>
+    <div class="filterDiv garnir"> Лапша удон с овощами </div>
+    <div class="filterDiv garnir"> Тыква запеченная с травами </div>
+    <div class="filterDiv garnir"> Кус кус по марокандски </div>
+    <div class="filterDiv garnir"> Морковь глазированная с мятной гремолатой </div>
+    <div class="filterDiv garnir"> Чичевица красная с припущенным шпинатом </div>
+    <div class="filterDiv garnir"> Каша гречневая </div>
+    <div class="filterDiv garnir"> Пюре картофельное с жареным луком и шкварками </div>
+    <div class="filterDiv garnir"> Роллы из пекинской капусты </div>
+    <div class="filterDiv garnir"> Икра из баклажан </div>
+    <div class="filterDiv garnir"> Горячая сырная тарелка </div>
+    <div class="filterDiv garnir"> Ассорти из овощной икры </div>
+    <div class="filterDiv garnir"> Спаржа в сливочном соусе </div>
+    <div class="filterDiv garnir"> Скаллопине Фунги Порччини </div>
+    <div class="filterDiv garnir"> Мильфей с ягодами </div>
+    <div class="filterDiv garnir"> Ризотто с овощами </div>
+    <div class="filterDiv garnir"> Сарган с картофельным гратеном </div>
+    <div class="filterDiv garnir"> Гамберетти Кон Сальса Ди Манго </div>
+    <div class="filterDiv garnir"> Полента кукурузная с соусом Четыре сыра </div>
+    <div class="filterDiv garnir"> Спаржа на гриле </div>
+    <div class="filterDiv garnir"> Шампиньоны гриль </div>
+    <div class="filterDiv garnir"> Булгур с белыми грибами </div>
+    <div class="filterDiv garnir"> Булгур с сухофруктами </div>
+    <div class="filterDiv garnir"> Сырные палочки </div>
+    <div class="filterDiv garnir"> Кесадилья с ветчиной </div>
+    <div class="filterDiv garnir"> Ржаные гренки </div>
+    <div class="filterDiv garnir"> Кукуруза на гриле по Мексикански </div>
+    <div class="filterDiv garnir"> Овощи гриль </div>
+    <div class="filterDiv garnir"> Яблочная темпура </div>
+    <div class="filterDiv garnir"> Батат с пармезаном </div>
+    <div class="filterDiv garnir"> Авокадо запеченное </div>
+    <div class="filterDiv garnir"> Ризотто с грибами и трюфельной пастой </div>
+    <div class="filterDiv garnir"> Вафля шпинатная </div>
+    <div class="filterDiv garnir"> Вафля тыквенная </div>
+    <div class="filterDiv garnir"> Вафля картофельная </div>
+    <div class="filterDiv garnir"> Капуста шпиц с трюфельной сметаной </div>
+    <div class="filterDiv garnir"> Тыква с яблочным карри </div>
+    <div class="filterDiv garnir"> Ризотто из пшеницы с запеченной тыквой </div>
+    <div class="filterDiv garnir"> Будда-боул с артишоками и хумусом </div>
+    <div class="filterDiv garnir"> Овощи по тайски </div>
+    <div class="filterDiv garnir"> Греча отварная </div>
+    <div class="filterDiv garnir"> Плов овощной </div>
+    <div class="filterDiv garnir"> Кутья </div>
+    <div class="filterDiv garnir"> Авокадо на гриле </div>
+    <div class="filterDiv garnir"> Боул томаты с киноа и авокадо </div>
+    <div class="filterDiv garnir"> Груша сваренная в вине </div>
+    <div class="filterDiv garnir"> Боул с киноа </div>
+    <div class="filterDiv garnir"> Боул с зеленой гречей,яйцом пашот,припущенным шпинатом и авокадо </div>
+    <div class="filterDiv garnir"> Шакшука с помидорами </div>
+    <div class="filterDiv garnir"> Сырные палочки с клюквеным соусом </div>
+    <div class="filterDiv garnir"> Картофель по домашнему </div>
+    <div class="filterDiv garnir"> Картофельное пюре на сливках </div>
+    <div class="filterDiv garnir"> Картофель Фри </div>
+    <div class="filterDiv garnir"> Картофель жареный с белыми грибами </div>
+    <div class="filterDiv garnir"> Картофель мини с шпинатом,грибами и карамелезированной морковью </div>
+    <div class="filterDiv garnir"> Картофельное пюре </div>
+    <div class="filterDiv garnir"> Картофель на мангале </div>
+    <div class="filterDiv garnir"> Картофельное пюре с трюфелем </div>
+    <div class="filterDiv garnir"> Картофель бейби жарнный с розмарином </div>
+    <div class="filterDiv garnir"> Картофель Фри с колбаской </div>
+    <div class="filterDiv garnir"> Картофель Фри с курицей террияки </div>
+    <div class="filterDiv garnir"> Картофель Фри с курицей и сырным соусом </div>
+    <div class="filterDiv garnir"> Картофель Фри с креветкой </div>
+    <div class="filterDiv garnir"> Картофель Фри с говядиной </div>
+    <div class="filterDiv bakery"> Чизкейк Нью Йорк <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Чизкейк Тирамису <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Чизкейк Карамельный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Чизкейк Апельсин-шоколад <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Чизкейк Шоколадный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Чизкейк Кокосовый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Чизкейк классический 22 см <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Чизкейк арахисовый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Чизкейк Манго <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Чизкейк Клубничный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Шоколадный торт Tenerina <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Наполеон <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Zaher <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Эстерхази <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Медовик <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Красный Бархат <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Соленая карамель <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Черный лес <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Птичье молоко <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Сникерс <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Грушевый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Морковный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Морковный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Наполеон <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Zaher <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Фисташковый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Тарт яблочный с гарниром на выбор и соусом из яблок <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Сказка 22 см <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Красный бархат 22 см <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Ореховый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Мохито <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Соленая карамель 22 см <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт "панчо" <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Эстерхази Милана <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Птичье молоко <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Киевский 20 см <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт шоколадный кето <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Торт Медовик <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Грушевый торт <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Штрудель вишневый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Штрудель яблочный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Эклер с кремом Маскарпоне <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Эклер малиновый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Эклер с кремом Бейлис <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Профитроли <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Профитроли Чоколатто <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Тирамису классический <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Тирамису фруктовый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Тирамису <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Кассата Сичильяна <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Десерт Панна Кота <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Десерт Анна Павлова <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Десерт Шоколадный Шар <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Десерт Карамельный Семифредо <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Десерт Шоколадный Семифредо <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Меренговый рулет <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Меренговый рулет с малиной и фисташками <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Рулет шоколадный с псилиумом и творогом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Крем Брюлле <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Жареный шоколад на апельсиновом карпаччо <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Домашнее мороженое <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Макарон ванильный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Макарон Малиновый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Макарон Фисташковый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Макарон Шоколадный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Макарон Тирамису <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Абрикосовый Пай <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Яблочный тарт на цельнозерновой лепешке <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Клубничный тарт <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожное Картошка <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Десерт Картошка 22 см <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Шоколадный Фондан <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Брауни <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Сабле <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Bacci di dama <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Бискотти с кокосом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Фиорентини <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Кантуччи <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Меренга с миндалем <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Паста Фролла <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Овсяное с изюмом и орехами <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Овсяно-Шоколадное <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье овсянное <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье овсянное с изюмом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Амаретти <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Пистаккио <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Бачи ди дама <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Паста фрале с цукатами <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Пармезановое <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Кунжутное <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье с чаем матча <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Американское <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Шоколадное <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Брауни <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Миндальное <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Австрийское <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Песочное <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Кокосовое <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Имбирное <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Печенье Мята <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Мусс Шоколадный с шариком мороженого <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Мусс апельсиновый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Мусс Шоколадный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Мятный мусс на белом шоколаде <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Мусс манго маракуйя <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Молочный мусс <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Крем из сливок с манго <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Мармелад из сока апельсина <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Панкейки с сухофруктами и яблочно ананасовым смузи <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Панкейки с изюмом и арахисом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Кекс Лимонный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Маффин классический в тюльпане <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Маффин с грушей и грецким орехом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Маффины 3 шоколада <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Маффины ванильные <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Маффины морковные <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Маффины шоколадные <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Кекс Шоколадный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Кулич кето с клюквой и черникой <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Кулич с лимонными цукатами <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Кулич кето арахисовый <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Кулич кето с орехами <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Кулич пасхальный <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Трюфель кето <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Рафаэлло кето <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Ганаш шоколадный для конфет <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Конфета шоколадная с арахисом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Конфета шоколадная с грецким орехом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Конфета с кокосовой стружкой <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Декор из изомальта <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Слойка с сгущенкой <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Слойка с шпинатом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Слойка с вишней <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Слойка с свежим яблоком <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Маковка <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Плюшка сахарная <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Сдоба с конфитюром <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Сдоба с сгущенкой <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Бриошь <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Ватрушка с творогом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Сочник с творогом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Синнабон <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Рулетки с маком <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Булочка с корицей и изюмом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Улитка с заварным кремом и изюмом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Круассан классический <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Круассан с малиной <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Круассан французкий классический <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожок печеный с капустой <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожки с картошкой,укропом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожки печеные с картошкой <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожки печеные с луком и яйцом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожки кето с яйцом и луком <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожок печенный с яблоком <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожок печенный с малиной <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожки с мясом зеленью и луком <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожки с кабачком творогом и зеленью <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожок печенный с картофелем и грибами <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожок печенный с картофелем и печенью <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожок печенный с мясом и луком <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Пирожки сытные с гречей,яйцом и луком <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Хачапури по-Мегрельски с сыром <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Хачапури по-Мегрельски с сыром и зеленью <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Хачапури по-Мегрельски с мясом <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Хачапури по Имеритински <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Хачапури по-Аджарски <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Хачапури по-Аджарски (лодочки) <br><sub></sub> </div>
+    <div class="filterDiv bakery"> Вафли <br><sub></sub> </div>
+    <div class="filterDiv bread"> Хлеб Гречишный на закваске </div>
+    <div class="filterDiv bread"> Хлеб пшеничный Тартин на закваске </div>
+    <div class="filterDiv bread"> Хлеб Бородинский на закваске </div>
+    <div class="filterDiv bread"> Хлеб Сырно-луковый </div>
+    <div class="filterDiv bread"> Хлеб Фитнес на зеленой гречке c семенами чиа,льна и подсолнечника </div>
+    <div class="filterDiv bread"> Хлеб безглютеновый Фитнес на зеленой гречке c семенами чиа,льна и подсолнечника </div>
+    <div class="filterDiv bread"> Хлеб с вяленными томатами </div>
+    <div class="filterDiv bread"> Хлеб черный Семечка </div>
+    <div class="filterDiv bread"> Хлеб цельнозерновой </div>
+    <div class="filterDiv bread"> Хлеб ржано - пшеничный Тартин </div>
+    <div class="filterDiv bread"> Хлеб Фруктово-ореховый Гурмэ </div>
+    <div class="filterDiv bread"> Хлеб ржаной на закваске </div>
+    <div class="filterDiv bread"> Хлеб сырный </div>
+    <div class="filterDiv bread"> Хлеб ромашка </div>
+    <div class="filterDiv bread"> Хлеб ( матнакаш ) </div>
+    <div class="filterDiv bread"> Хлеб с миндальной мукой (весовой) </div>
+    <div class="filterDiv bread"> Хлеб с льняной мукой (весовой) </div>
+    <div class="filterDiv bread"> Бородинский кетто хлеб </div>
+    <div class="filterDiv bread"> Миндальный кето хлеб с прованскими травами и кунжутом. </div>
+    <div class="filterDiv bread"> Багет класический </div>
+    <div class="filterDiv bread"> Багет французский </div>
+    <div class="filterDiv bread"> Лепешка домашняя </div>
+    <div class="filterDiv bread"> Чиабатта классическая </div>
+    <div class="filterDiv burger"> Ламббургер </div>
+    <div class="filterDiv burger"> Гранд Биф Бургер </div>
+    <div class="filterDiv burger"> Веджибургер </div>
+    <div class="filterDiv burger"> BBQ Чикен бургер </div>
+    <div class="filterDiv burger"> Классик Биф бургер </div>
+    <div class="filterDiv burger"> Креветка бургер </div>
+    <div class="filterDiv burger"> Мега Чиз Бургер </div>
+    <div class="filterDiv burger"> Терияки чикен бургер </div>
+    <div class="filterDiv burger"> Рашн стайл бургер </div>
+    <div class="filterDiv burger"> Бейгл бургер </div>
+    <div class="filterDiv burger"> Дойч бургер </div>
+    <div class="filterDiv burger"> Гамбургер </div>
+    <div class="filterDiv burger"> Бургер с курицей </div>
+    <div class="filterDiv burger"> Баффало бургер </div>
+    <div class="filterDiv burger"> Биг Ланч бургер </div>
+    <div class="filterDiv burger"> Чизбургер </div>
+    <div class="filterDiv burger"> Фишбургер </div>
+    <div class="filterDiv burger"> Бургер из антрекота с трюфельным соусом </div>
+    <div class="filterDiv burger"> Бургер " фитнес " </div>
+    <div class="filterDiv burger"> Бургер "Лацио" с котлетой из антрекота и страчателлой в соусе песто </div>
+    <div class="filterDiv burger"> Мехико бургер </div>
+    <div class="filterDiv burger"> Бургер из антрекота с ягодным соусом </div>
+    <div class="filterDiv burger"> Бургер с курицей и гриль соусом </div>
+    <div class="filterDiv burger"> Тост Авокадо </div>
+    <div class="filterDiv burger"> Чикенбургер </div>
+    <div class="filterDiv burger"> Лосось Сэндвич </div>
+    <div class="filterDiv burger"> Клаб Сэндвич </div>
+    <div class="filterDiv burger"> Клаб-сэндвич «Бавария» </div>
+    <div class="filterDiv burger"> Клаб-сэндвич с лососем </div>
+    <div class="filterDiv burger"> Сэндвич с курицей и маринованными огурчиками </div>
+    <div class="filterDiv burger"> Сэндвич ''Цезарь'' </div>
+    <div class="filterDiv burger"> Сэндвич с индейкой и маринованными огурчиками </div>
+    <div class="filterDiv burger"> Сэндвич с моцареллой и ветчиной </div>
+    <div class="filterDiv burger"> Сэндвич горячий с куриной грудкой </div>
+    <div class="filterDiv burger"> Стейк сэндвич с ростбифом </div>
+    <div class="filterDiv burger"> Сэндвич холодный куриный </div>
+    <div class="filterDiv burger"> Сэндвич с пастрами из индейки </div>
+    <div class="filterDiv burger"> Сэндвич с пастрами из говядины </div>
+    <div class="filterDiv burger"> Сэндвич горячий с жареным камамбером </div>
+    <div class="filterDiv burger"> Чикен Сэндвич (Кубинский) </div>
+    <div class="filterDiv burger"> Барбекю Сэндвич (Кубинский) </div>
+    <div class="filterDiv burger"> Дойч Сэндвич (Кубинский) </div>
+    <div class="filterDiv burger"> Мясной Сэндвич </div>
+    <div class="filterDiv burger"> Сэндвич с тунцом </div>
+    <div class="filterDiv burger"> Сэндвич с ветчиной </div>
+    <div class="filterDiv burger"> Сэндвич ''Капрезе'' </div>
+    <div class="filterDiv burger"> Ролл-сэндвич Фирменный </div>
+    <div class="filterDiv burger"> Ролл-сэндвич Мексиканский </div>
+    <div class="filterDiv burger"> Ролл-сэндвич Сырный </div>
+    <div class="filterDiv burger"> Ролл-сэндвич Английский завтрак </div>
+    <div class="filterDiv burger"> Ролл-сэндвич Гавайский </div>
+    <div class="filterDiv burger"> Ролл-сэндвич Банан-Зефир </div>
+    <div class="filterDiv burger"> Ролл-сэндвич Банан-Шоколад </div>
+    <div class="filterDiv burger"> Пита Барбекю </div>
+    <div class="filterDiv burger"> Пита Бургер </div>
+    <div class="filterDiv burger"> Пита Туна </div>
+    <div class="filterDiv burger"> Пита Чикен </div>
+    <div class="filterDiv burger"> Пита с яблоками </div>
+    <div class="filterDiv burger"> Пита Фалафель </div>
+    <div class="filterDiv burger"> Хот дог Датский </div>
+    <div class="filterDiv burger"> Хот дог Французкий </div>
+    <div class="filterDiv burger"> Французский Хот-дог </div>
+    <div class="filterDiv burger"> Шаурма Классичекая </div>
+    <div class="filterDiv burger"> Шаурма Греческая </div>
+    <div class="filterDiv burger"> Шаурма Сырная </div>
+    <div class="filterDiv burger"> Шаурма Московская </div>
+    <div class="filterDiv burger"> Шаурма Турецкая </div>
+    <div class="filterDiv burger"> Шаурма Цезарь </div>
+    <div class="filterDiv burger"> Шаурма Охотничья </div>
+    <div class="filterDiv burger"> Шаурма Веганская </div>
+    <div class="filterDiv burger"> Шаурма Ливанская </div>
+    <div class="filterDiv burger"> Шаверма с курицей </div>
+    <div class="filterDiv burger"> Бурито с говядиной </div>
+    <div class="filterDiv burger"> Гирос с говядиной </div>
+    <div class="filterDiv burger"> Гирос с курицей </div>
+    <div class="filterDiv burger"> Крок-месье </div>
+    <div class="filterDiv burger"> Крок-мадам </div>
+    <div class="filterDiv burger"> Тост с сыром и беконом </div>
+    <div class="filterDiv burger"> Кесадилья с крабовым мясом </div>
+    <div class="filterDiv burger"> Кесадилья Вегетарианская </div>
+    <div class="filterDiv burger"> Кесадилья с курицей </div>
+    <div class="filterDiv burger"> Кесадилья с говядиной </div>
+    <div class="filterDiv burger"> Тост Маргарита </div>
+    <div class="filterDiv burger"> Тост Анкара </div>
+    <div class="filterDiv burger"> Сэндвич теплый с баклажаном </div>
+    <div class="filterDiv burger"> Бутерброды с сыром и колбасой </div>
+    <div class="filterDiv burger"> Сэндвич Бокадилья</div>
+    <div class="filterDiv burger"> Ролл по-мексикански с говядиной </div>
+    <div class="filterDiv burger"> Мексиканский мясной пирог </div>
+    <div class="filterDiv burger"> Пирог из вырезки грибами </div>
+    <div class="filterDiv burger"> Мини-чебуреки </div>
+    <div class="filterDiv burger"> Фахитос </div>
+    <div class="filterDiv burger"> Бурито на шпашке </div>
+    <div class="filterDiv burger"> Брускета с томатами и страчателой </div>
+    <div class="filterDiv burger"> Брускета с лососем и сливочным сыром </div>
+    <div class="filterDiv burger"> Брускета с ростбифом,рукколой с медово горчичным соусом </div>
+    <div class="filterDiv burger"> Брускета с мясом краба </div>
+    <div class="filterDiv burger"> Брускетта Сырное Ассорти </div>
+    <div class="filterDiv burger"> Брускетта Маргарита </div>
+    <div class="filterDiv burger"> Брускетта Паназия </div>
+    <div class="filterDiv burger"> Брускетта Цезарь </div>
+    <div class="filterDiv burger"> Кростини с креветками на теплом авокадо </div>
+    <div class="filterDiv burger"> Ассорти брускет </div>
+    <div class="filterDiv drinks"> Милкшейк "Попкорн" </div>
+    <div class="filterDiv drinks"> Малыш Томми </div>
+    <div class="filterDiv drinks"> Малышка Люси </div>
+    <div class="filterDiv drinks"> Смузи «банан-маракуйя» </div>
+    <div class="filterDiv drinks"> Смузи «голубика-банан» </div>
+    <div class="filterDiv drinks"> Смузи «Клубника-ананас» </div>
+    <div class="filterDiv drinks"> Смузи Мангомания </div>
+    <div class="filterDiv drinks"> Смузи Вита Микс </div>
+    <div class="filterDiv drinks"> Смузи Банана Сплит </div>
+    <div class="filterDiv drinks"> Смузи Беби - Бумер </div>
+    <div class="filterDiv drinks"> Смузи Фрутти Фрешер </div>
+    <div class="filterDiv drinks"> Смузи Мангомания </div>
+    <div class="filterDiv drinks"> Смузи Вита Микс </div>
+    <div class="filterDiv drinks"> Милкшейк Бабл Гам </div>
+    <div class="filterDiv drinks"> Лимонад "Дюшес" </div>
+    <div class="filterDiv drinks"> Лимонад "Малина-Мята" </div>
+    <div class="filterDiv drinks"> Гляссе </div>
+    <div class="filterDiv drinks"> Кленовый латте </div>
+    <div class="filterDiv drinks"> Бейлис кофе </div>
+    <div class="filterDiv drinks"> Айриш кофе </div>
+    <div class="filterDiv drinks"> Морс ягодный </div>
+    <div class="filterDiv drinks"> Морс Клюквенно Брусничный </div>
+    <div class="filterDiv drinks"> Компот из кураги </div>
+    <div class="filterDiv drinks"> Компот из сухофруктов </div>
+    <div class="filterDiv drinks"> Компот из сухофруктов и ягод </div>
+    <div class="filterDiv drinks"> Узвар из сухофруктов </div>
+    <div class="filterDiv drinks"> Морс из клюквы </div>
+    <div class="filterDiv drinks"> Морс из малины </div>
+    <div class="filterDiv drinks"> Коктейль молочный </div>
+  </div>
+
+  <script>
+    filterSelection("all")
+
+    function filterSelection(c) {
+      var x, i;
+      x = document.getElementsByClassName("filterDiv");
+      if (c == "all") c = "";
+      for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+      }
+    }
+
+    function w3AddClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {
+          element.className += " " + arr2[i];
+        }
+      }
+    }
+
+    function w3RemoveClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+          arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+      }
+      element.className = arr1.join(" ");
+    }
+
+    // Добавьте активный класс к текущей кнопке (выделите его)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+  </script>
+
+</body>
+
+</html>
+</div>
+<!-- Optional JavaScript; choose one of the two! -->
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
